@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 21:48:00 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/13 09:53:00 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/14 19:45:19 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ char	*ft_strrchr(const char *s, int c)
 		i--;
 	if (s[i] == (char)c)
 		return ((char *)s + i);
-	else
-		return (NULL);
+	return (NULL);
 }

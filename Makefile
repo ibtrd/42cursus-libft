@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2023/11/13 10:41:31 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2023/11/14 19:51:37 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,18 +14,17 @@ NAME = libft.a
 
 # *** SOURCES **************************************************************** #
 
-SRC_PART1	=	isalpha isdigit isalnum isascii isprint strlen memset bzero \
-				memcpy memmove strlcpy strlcat toupper tolower strchr strrchr \
+SRC_PART1	=	isalpha isdigit isalnum isascii isprint strlen memset bzero    \
+				memcpy memmove strlcpy strlcat toupper tolower strchr strrchr  \
 				strncmp memchr memcmp strnstr atoi calloc strdup
 				
-SRC_PART2	=	substr strjoin strtrim split itoa strmapi striteri putchar_fd \
+SRC_PART2	=	substr strjoin strtrim split itoa strmapi striteri putchar_fd  \
 				putstr_fd putendl_fd putnbr_fd
 
-SRC_BONUS	=	lstnew lstadd_front lstsize lstlast lstadd_back lstdelone \
+SRC_BONUS	=	lstnew lstadd_front lstsize lstlast lstadd_back lstdelone      \
 				lstclear lstiter lstmap
 
-
-SRCS 		=	$(addprefix ft_, $(addsuffix .c, $(SRC_PART2))) \
+SRCS 		=	$(addprefix ft_, $(addsuffix .c, $(SRC_PART2)))                \
 				$(addprefix ft_, $(addsuffix .c, $(SRC_PART1)))
 				
 SRCS_BONUS	=	$(addprefix ft_, $(addsuffix _bonus.c, $(SRC_BONUS)))
@@ -49,10 +48,9 @@ CPPFLAGS 	=	-MMD -MP
 AR			=	ar
 ARFLAGS		=	rcs
 
+RM			=	rm -f
 
 MKDIR 		= 	mkdir -p $(@D)
-
-RM			=	rm -f
 RMDIR		= 	rmdir
 
 # *** TARGETS **************************************************************** #
@@ -84,16 +82,10 @@ fclean : clean
 	@echo "$(YELLOW) $(NAME) removed... $(RESET)"
 	
 re : fclean all
-	
-rebonus	: fclean bonus
-
-so :
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 # *** SPECIAL TARGETS ******************************************************** #
 
-.PHONY : all bonus clean fclean re rebonus
+.PHONY : all bonus clean fclean re
 
 # *** FANCY STUFF ************************************************************ #
 
