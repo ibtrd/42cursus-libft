@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 17:06:15 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/14 14:02:16 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/15 15:26:41 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	if (fd)
-		write(fd, &c, 1);
+	write(fd, &c, 1);
 }
