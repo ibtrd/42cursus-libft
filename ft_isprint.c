@@ -6,13 +6,15 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:09:05 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/14 16:12:35 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/15 15:37:36 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isprint(int c)
 {
-	if (c >= ' ' && c < 127)
+	if (c >= ' ' && c < DEL)
 		return (c);
 	return (0);
 }
