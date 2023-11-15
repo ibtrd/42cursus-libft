@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 23:21:28 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/11 16:30:08 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/15 15:27:59 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	new_lst = NULL;
 	new_elem = NULL;
-	while (lst)
+	while (lst && f && del)
 	{
 		new_cont = (*f)(lst->content);
 		new_elem = ft_lstnew(new_cont);
