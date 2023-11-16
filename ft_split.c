@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:30:06 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/16 12:33:22 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/16 15:19:34 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,8 @@ static char	**ft_filltab(char **ptr, char const *s, char c, size_t count)
 
 static void	ft_freeall(char **ptr)
 {
-	size_t	i;
-
-	i = 0;
-	while (ptr[i])
-		free(ptr[i++]);
+	while (*ptr)
+		free(*ptr);
 	free(ptr);
 }
 
