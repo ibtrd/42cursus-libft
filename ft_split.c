@@ -6,14 +6,14 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:30:06 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/11 17:16:55 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/16 12:33:22 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static char	**ft_filltab(char **ptr, char const *s, char c, size_t count);
-static void	ft_freeall(char **ptr, size_t n);
+static void	ft_freeall(char **ptr);
 static int	ft_countword(char const *s, char c);
 
 char	**ft_split(char const *s, char c)
@@ -51,7 +51,7 @@ static char	**ft_filltab(char **ptr, char const *s, char c, size_t count)
 		ptr[word] = ft_substr(s, start, end - start);
 		if (!ptr[word])
 		{
-			ft_freeall(ptr, word);
+			ft_freeall(ptr);
 			return (NULL);
 		}
 		word++;
@@ -60,12 +60,12 @@ static char	**ft_filltab(char **ptr, char const *s, char c, size_t count)
 	return (ptr);
 }
 
-static void	ft_freeall(char **ptr, size_t n)
+static void	ft_freeall(char **ptr)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < n)
+	while (ptr[i])
 		free(ptr[i++]);
 	free(ptr);
 }
