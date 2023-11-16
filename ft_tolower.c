@@ -6,13 +6,15 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 20:51:40 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/14 17:29:50 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/16 02:22:47 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
+		return (c + CAPITALIZE);
 	return (c);
 }

@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/15 15:37:15 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/16 02:22:19 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <limits.h>
 
 # define DEL 127
+# define CAPITALIZE 32
 
 /* Mandatory Part 1 - Libc functions ******************************************/
 
