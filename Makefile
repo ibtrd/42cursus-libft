@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2023/11/14 19:51:37 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2023/11/17 23:16:34 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,12 @@ SRC_PART2	=	substr strjoin strtrim split itoa strmapi striteri putchar_fd  \
 SRC_BONUS	=	lstnew lstadd_front lstsize lstlast lstadd_back lstdelone      \
 				lstclear lstiter lstmap
 
-SRCS 		=	$(addprefix ft_, $(addsuffix .c, $(SRC_PART2)))                \
-				$(addprefix ft_, $(addsuffix .c, $(SRC_PART1)))
+SRC			=	putnbrbase_fd
+
+SRCS 		=	$(addprefix ft_, $(addsuffix .c, $(SRC_PART1)))                \
+				$(addprefix ft_, $(addsuffix .c, $(SRC_PART2)))				   \
+				$(SRCS_BONUS)												   \
+				$(addprefix ft_, $(addsuffix .c, $(SRC)))
 				
 SRCS_BONUS	=	$(addprefix ft_, $(addsuffix _bonus.c, $(SRC_BONUS)))
 
@@ -66,9 +70,6 @@ $(BUILD_DIR)%.o : %.c
 	@if [ ! -d "$(@D)" ]; then $(MKDIR); fi
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
-bonus :
-	$(MAKE) SRCS="$(SRCS) $(SRCS_BONUS)"
-
 -include $(DEPS)
 
 clean :
@@ -85,7 +86,7 @@ re : fclean all
 
 # *** SPECIAL TARGETS ******************************************************** #
 
-.PHONY : all bonus clean fclean re
+.PHONY : all clean fclean re
 
 # *** FANCY STUFF ************************************************************ #
 
