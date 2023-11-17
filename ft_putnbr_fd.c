@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 21:06:09 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/14 16:16:10 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/17 23:20:42 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,15 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == -2147483648)
-	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
-	}
+	long	ln;
+
+	ln = n;
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		n *= -1;
+		ln *= -1;
 	}
-	if (n < 10)
-		ft_putchar_fd(n % 10 + '0', fd);
-	if (n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
-	}
+	if (ln >= 10)
+		ft_putnbr_fd(ln / 10, fd);
+	ft_putchar_fd(ln % 10 + '0', fd);
 }
