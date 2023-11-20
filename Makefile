@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2023/11/17 23:16:34 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2023/11/20 10:38:23 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC_PART2	=	substr strjoin strtrim split itoa strmapi striteri putchar_fd  \
 SRC_BONUS	=	lstnew lstadd_front lstsize lstlast lstadd_back lstdelone      \
 				lstclear lstiter lstmap
 
-SRC			=	putnbrbase_fd
+SRC			=	putnbrbase_fd ischarset
 
 SRCS 		=	$(addprefix ft_, $(addsuffix .c, $(SRC_PART1)))                \
 				$(addprefix ft_, $(addsuffix .c, $(SRC_PART2)))				   \
