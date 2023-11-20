@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2023/11/20 10:38:23 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2023/11/20 19:35:56 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,8 @@ SRCS_BONUS	=	$(addprefix ft_, $(addsuffix _bonus.c, $(SRC_BONUS)))
 BUILD_DIR	=	.build/
 
 OBJS 		=	$(SRCS:%.c=$(BUILD_DIR)%.o)
-OBJS_BONUS	=	$(SRCS_BONUS:%.c=$(BUILD_DIR)%.o)
 
 DEPS        =	$(OBJS:%.o=%.d)
-DEPS_BONUS	=	$(OBJS_BONUS:%.o=%.d)
 
 # *** CONFIG ***************************************************************** #
 
