@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2023/11/20 19:35:56 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2023/11/21 22:03:07 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,24 +14,22 @@ NAME = libft.a
 
 # *** SOURCES **************************************************************** #
 
-SRC_PART1	=	isalpha isdigit isalnum isascii isprint strlen memset bzero    \
+SRC_LIBFT	=	isalpha isdigit isalnum isascii isprint strlen memset bzero    \
 				memcpy memmove strlcpy strlcat toupper tolower strchr strrchr  \
-				strncmp memchr memcmp strnstr atoi calloc strdup
-				
-SRC_PART2	=	substr strjoin strtrim split itoa strmapi striteri putchar_fd  \
-				putstr_fd putendl_fd putnbr_fd
-
-SRC_BONUS	=	lstnew lstadd_front lstsize lstlast lstadd_back lstdelone      \
+				strncmp memchr memcmp strnstr atoi calloc strdup			   \
+				substr strjoin strtrim split itoa strmapi striteri putchar_fd  \
+				putstr_fd putendl_fd putnbr_fd								   \
+				lstnew lstadd_front lstsize lstlast lstadd_back lstdelone      \
 				lstclear lstiter lstmap
+
+SRC_GNL		=	get_next_line get_next_line_utils
 
 SRC			=	putnbrbase_fd ischarset
 
-SRCS 		=	$(addprefix ft_, $(addsuffix .c, $(SRC_PART1)))                \
-				$(addprefix ft_, $(addsuffix .c, $(SRC_PART2)))				   \
-				$(SRCS_BONUS)												   \
-				$(addprefix ft_, $(addsuffix .c, $(SRC)))
+SRCS 		=	$(addprefix ft_, $(addsuffix .c, $(SRC_LIBFT)))                \
+				$(addsuffix .c, $(SRC_GNL))									   \
+				$(addprefix ft_, $(addsuffix .c, $(SRC)))					   \
 				
-SRCS_BONUS	=	$(addprefix ft_, $(addsuffix _bonus.c, $(SRC_BONUS)))
 
 # *** OBJECTS & DEPENDENCIES ************************************************* #
 

@@ -6,23 +6,25 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/20 21:36:11 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/21 21:30:15 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <limits.h>
+/* includes *******************************************************************/
 
-/* Define *********************************************************************/
+# include <unistd.h>	// write()
+# include <stdlib.h>	// malloc(), free() ...
+# include <limits.h>	// INT_MIN, INT_MAX ... 
+
+/* defines ********************************************************************/
 
 # define DEL 127
 # define CAPITALIZE 32
 
-/* typedef ********************************************************************/
+/* typedefs *******************************************************************/
 
 typedef struct s_list
 {
@@ -30,7 +32,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-/* Functions ******************************************************************/
+/* functions ******************************************************************/
 
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
