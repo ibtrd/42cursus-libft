@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 06:08:18 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/21 21:22:08 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/21 22:13:50 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*get_next_line(int fd)
 	char		*next_line;
 
 	next_line = NULL;
-	if (fd == -2)
+	if (fd == -42)
 	{
 		gnl_freeallcache(cache);
 		return (NULL);
@@ -40,31 +40,6 @@ char	*get_next_line(int fd)
 	return (next_line);
 }
 
-size_t	ft_strlen(char const *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str && str[i])
-		i++;
-	return (i);
-}
-
-void	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	size_t	i;
-
-	i = 0;
-	if (size == 0)
-		return ;
-	while (src && src[i] && i < size - 1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-}
-
 int	gnl_newlinecheck(char *cache)
 {
 	size_t	i;
@@ -79,7 +54,7 @@ int	gnl_newlinecheck(char *cache)
 	return (0);
 }
 
-void	gnl_freeallcache(char **cache_array)
+void	gnl_freecache(char **cache_array)
 {
 	int	i;
 

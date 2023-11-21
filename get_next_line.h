@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 06:09:37 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/21 21:21:16 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/21 22:13:46 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ char	*gnl_trimline(char *cache);
 int		gnl_newlinecheck(char *buffer);
 size_t	ft_strlen(char const *str);
 void	ft_strlcpy(char *dst, const char *src, size_t size);
-void	gnl_freeallcache(char **cache_array);
+void	gnl_freecache(char **cache_array);
 
 #endif
