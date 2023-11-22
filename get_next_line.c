@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 06:08:18 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/21 22:13:50 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/21 23:43:04 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*get_next_line(int fd)
 	next_line = NULL;
 	if (fd == -42)
 	{
-		gnl_freeallcache(cache);
+		gnl_freecache(cache);
 		return (NULL);
 	}
 	if (fd < 0 || fd >= MAX_FD || BUFFER_SIZE < 1)
