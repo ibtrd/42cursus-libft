@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 23:21:28 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/15 15:27:59 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/22 16:28:52 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst && f && del)
 	{
 		new_cont = (*f)(lst->content);
-		new_elem = ft_lstnew(new_cont);
+		if (new_cont)
+			new_elem = ft_lstnew(new_cont);
 		if (!new_elem)
 		{
 			(*del)(new_cont);
