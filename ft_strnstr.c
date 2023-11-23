@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:46:20 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/13 09:51:33 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/23 15:32:38 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return (NULL);
 	while (big && big[i] && i <= len - little_len)
 	{
-		if (!ft_strncmp(&big[i], little, little_len))
+		if (!ft_strncmp(big + i, little, little_len))
 			return ((char *)big + i);
 		i++;
 	}

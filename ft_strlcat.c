@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:11:00 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/11 02:23:01 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/23 13:54:01 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 			dst[len + i] = src[i];
 			i++;
 		}
-		dst[len + i] = 0;
+		dst[len + i] = '\0';
 	}
 	return (len + ft_strlen(src));
 }
