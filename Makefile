@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2023/11/21 22:03:07 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2023/11/23 02:10:53 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC_LIBFT	=	isalpha isdigit isalnum isascii isprint strlen memset bzero    \
 
 SRC_GNL		=	get_next_line get_next_line_utils
 
-SRC			=	putnbrbase_fd ischarset
+SRC			=	putnbrbase_fd ischarset itoalen
 
 SRCS 		=	$(addprefix ft_, $(addsuffix .c, $(SRC_LIBFT)))                \
 				$(addsuffix .c, $(SRC_GNL))									   \

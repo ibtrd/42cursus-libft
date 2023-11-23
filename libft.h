@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/23 00:44:13 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/23 02:10:26 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_putnbr_fd(int n, int fd);
-void	ft_putnbrbase_fd(int n, char *base, int fd);
+ssize_t	ft_putnbrbase_fd(int n, char *base, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+int		ft_itoalen(int n);
 
 #endif

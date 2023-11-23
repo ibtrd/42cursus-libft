@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrbase_fd.c                                 :+:      :+:    :+:   */
+/*   ft_itoalen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 23:02:11 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/23 02:06:26 by ibertran         ###   ########lyon.fr   */
+/*   Created: 2023/11/23 02:05:54 by ibertran          #+#    #+#             */
+/*   Updated: 2023/11/23 02:10:00 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-ssize_t	ft_putnbrbase_fd(int n, char *base, int fd)
+int	ft_itoalen(int n)
 {
-	ssize_t	wr;
-	long	ln;
-	int		base_len;
+	int	i;
 
-	ln = n;
-	wr = 0;
+	i = 1;
 	if (n < 0)
+		i++;
+	while (n / 10)
 	{
-		wr = ft_putchar_fd('-', fd);
-		if (wr == -1)
-			return (-1);
-		ln *= -1;
+		n /= 10;
+		i++;
 	}
-	base_len = ft_strlen(base);
-	if (ln >= base_len)
-		ft_putnbrbase_fd(ln / base_len, base, fd);
-	wr = ft_putchar_fd(base[ln % base_len], fd);
-	if (wr == -1)
-		return (-1);
-	return (ft_itoalen(n));
+	return (i);
 }
