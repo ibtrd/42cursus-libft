@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:02:11 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/23 02:06:26 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/23 02:18:31 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ ssize_t	ft_putnbrbase_fd(int n, char *base, int fd)
 	wr = ft_putchar_fd(base[ln % base_len], fd);
 	if (wr == -1)
 		return (-1);
-	return (ft_itoalen(n));
+	return (ft_itoalenbase(n, base));
 }
