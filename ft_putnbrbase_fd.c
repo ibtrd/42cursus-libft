@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:02:11 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/20 10:40:45 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/23 01:50:32 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_putnbrbase_fd(int n, char *base, int fd)
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		n *= -1;
+		ln *= -1;
 	}
 	base_len = ft_strlen(base);
 	if (ln >= base_len)
