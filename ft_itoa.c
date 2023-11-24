@@ -6,48 +6,56 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:38:56 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/14 16:12:50 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/24 00:17:07 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_get_itoa_len(int n);
-
-char	*ft_itoa(int n)
+char	*ft_itoa(int nbr)
 {
-	char		*ptr;
-	long long	n2;
-	size_t		len;
+	char	*ptr;
+	long	lnbr;
+	size_t	len;
 
-	len = ft_get_itoa_len(n);
+	len = ft_itoalen(nbr);
 	ptr = ft_calloc(len + 1, sizeof(char));
 	if (!ptr)
 		return (NULL);
-	n2 = (long long)n;
-	if (n < 0)
-		n2 *= -1;
+	lnbr = (long)nbr;
+	if (nbr < 0)
+		lnbr *= -1;
 	while (len--)
 	{
-		ptr[len] = n2 % 10 + '0';
-		n2 /= 10;
+		ptr[len] = lnbr % 10 + '0';
+		lnbr /= 10;
 	}
-	if (n < 0)
+	if (nbr < 0)
 		ptr[0] = '-';
 	return (ptr);
 }
 
-static size_t	ft_get_itoa_len(int n)
+char	*ft_itoa_base(int nbr, char *base)
 {
-	size_t	i;
+	char	*ptr;
+	long	lnbr;
+	int		len;
+	int		base_len;
 
-	i = 1;
-	if (n < 0)
-		i++;
-	while (n / 10)
+	base_len = ft_strlen(base);
+	len = ft_itoalenbase(nbr, base);
+	ptr = ft_calloc(len + 1, sizeof(char));
+	if (!ptr)
+		return (NULL);
+	lnbr = (long)nbr;
+	if (nbr < 0)
+		lnbr *= -1;
+	while (len--)
 	{
-		n /= 10;
-		i++;
+		ptr[len] = base[lnbr % base_len];
+		lnbr /= base_len;
 	}
-	return (i);
+	if (nbr < 0)
+		ptr[0] = '-';
+	return (ptr);
 }

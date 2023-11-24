@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/23 02:18:55 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/24 00:08:05 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ ssize_t	ft_putchar_fd(char c, int fd);
 ssize_t	ft_putendl_fd(char *str, int fd);
 ssize_t	ft_putstr_fd(char *str, int fd);
 t_list	*ft_lstlast(t_list *lst);
+char	*ft_itoa_base(int nbr, char *base);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 void	*ft_calloc(size_t nmemb, size_t size);
