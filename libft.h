@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/24 00:08:05 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/28 14:51:59 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct s_list
 /* functions ******************************************************************/
 
 char	**ft_split(char const *s, char c);
+char	*ft_itoa_base_ull(unsigned long nbr, char *base);
+char	*ft_itoa_base(int nbr, char *base);
 char	*ft_itoa(int n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
@@ -51,6 +53,9 @@ int		ft_isascii(int c);
 int		ft_ischarset(const char c, const char *set);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
+int		ft_itoalen_base_ul(unsigned long nbr, char *base);
+int		ft_itoalen(int n);
+int		ft_itoalenbase(int n, char *base);
 int		ft_lstsize(t_list *lst);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -62,9 +67,9 @@ size_t	ft_strlen_protected(const char *str);
 size_t	ft_strlen(const char *s);
 ssize_t	ft_putchar_fd(char c, int fd);
 ssize_t	ft_putendl_fd(char *str, int fd);
+ssize_t	ft_putnbrbase_fd(int n, char *base, int fd);
 ssize_t	ft_putstr_fd(char *str, int fd);
 t_list	*ft_lstlast(t_list *lst);
-char	*ft_itoa_base(int nbr, char *base);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 void	*ft_calloc(size_t nmemb, size_t size);
@@ -79,9 +84,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_putnbr_fd(int n, int fd);
-ssize_t	ft_putnbrbase_fd(int n, char *base, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-int		ft_itoalen(int n);
-int		ft_itoalenbase(int n, char *base);
+size_t	ft_strnlen(const char *str, size_t n);
 
 #endif

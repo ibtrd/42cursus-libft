@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:38:56 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/24 00:17:07 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/11/28 20:21:10 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,24 @@ char	*ft_itoa_base(int nbr, char *base)
 	}
 	if (nbr < 0)
 		ptr[0] = '-';
+	return (ptr);
+}
+
+char	*ft_itoa_base_ul(unsigned long nbr, char *base)
+{
+	char	*ptr;
+	int		len;
+	int		base_len;
+
+	base_len = ft_strlen(base);
+	len = ft_itoalen_base_ul(nbr, base);
+	ptr = ft_calloc(len + 1, sizeof(char));
+	if (!ptr)
+		return (NULL);
+	while (len--)
+	{
+		ptr[len] = base[nbr % base_len];
+		nbr /= base_len;
+	}
 	return (ptr);
 }
