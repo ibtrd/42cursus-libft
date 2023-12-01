@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 02:05:54 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/28 16:42:00 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/01 16:33:20 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_itoalen(int n)
 	return (i);
 }
 
-int	ft_itoalenbase(int n, char *base)
+int	ft_itoalen_base(int n, char *base)
 {
 	int	i;
 	int	base_len;
@@ -44,9 +44,22 @@ int	ft_itoalenbase(int n, char *base)
 	return (i);
 }
 
-#include <stdio.h>
+int	ft_uitoalen_base(unsigned int n, char *base)
+{
+	int	i;
+	int	base_len;
 
-int	ft_itoalen_base_ul(unsigned long nbr, char *base)
+	base_len = ft_strlen(base);
+	i = 1;
+	while (n / base_len)
+	{
+		n /= base_len;
+		i++;
+	}
+	return (i);
+}
+
+int	ft_ulltoalen_base(unsigned long long nbr, char *base)
 {
 	int	i;
 	int	base_len;

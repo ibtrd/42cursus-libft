@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/28 14:51:59 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/01 16:31:52 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_list
 /* functions ******************************************************************/
 
 char	**ft_split(char const *s, char c);
-char	*ft_itoa_base_ull(unsigned long nbr, char *base);
 char	*ft_itoa_base(int nbr, char *base);
 char	*ft_itoa(int n);
 char	*ft_strchr(const char *s, int c);
@@ -53,9 +52,8 @@ int		ft_isascii(int c);
 int		ft_ischarset(const char c, const char *set);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
-int		ft_itoalen_base_ul(unsigned long nbr, char *base);
 int		ft_itoalen(int n);
-int		ft_itoalenbase(int n, char *base);
+int		ft_itoalen_base(int n, char *base);
 int		ft_lstsize(t_list *lst);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -86,5 +84,9 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_putnbr_fd(int n, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 size_t	ft_strnlen(const char *str, size_t n);
+int		ft_ulltoalen_base(unsigned long long nbr, char *base);
+char	*ft_ulltoa_base(unsigned long long nbr, char *base);
+int		ft_uitoalen_base(unsigned int n, char *base);
+char	*ft_uitoa_base(unsigned int nbr, char *base);
 
 #endif

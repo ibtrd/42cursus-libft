@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:38:56 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/28 20:21:10 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/01 16:31:44 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_itoa_base(int nbr, char *base)
 	int		base_len;
 
 	base_len = ft_strlen(base);
-	len = ft_itoalenbase(nbr, base);
+	len = ft_itoalen_base(nbr, base);
 	ptr = ft_calloc(len + 1, sizeof(char));
 	if (!ptr)
 		return (NULL);
@@ -60,14 +60,35 @@ char	*ft_itoa_base(int nbr, char *base)
 	return (ptr);
 }
 
-char	*ft_itoa_base_ul(unsigned long nbr, char *base)
+char	*ft_uitoa_base(unsigned int nbr, char *base)
+{
+	char			*ptr;
+	unsigned long	lnbr;
+	int				len;
+	int				base_len;
+
+	base_len = ft_strlen(base);
+	len = ft_uitoalen_base(nbr, base);
+	ptr = ft_calloc(len + 1, sizeof(char));
+	if (!ptr)
+		return (NULL);
+	lnbr = (long)nbr;
+	while (len--)
+	{
+		ptr[len] = base[lnbr % base_len];
+		lnbr /= base_len;
+	}
+	return (ptr);
+}
+
+char	*ft_ulltoa_base(unsigned long long nbr, char *base)
 {
 	char	*ptr;
 	int		len;
 	int		base_len;
 
 	base_len = ft_strlen(base);
-	len = ft_itoalen_base_ul(nbr, base);
+	len = ft_ulltoalen_base(nbr, base);
 	ptr = ft_calloc(len + 1, sizeof(char));
 	if (!ptr)
 		return (NULL);
