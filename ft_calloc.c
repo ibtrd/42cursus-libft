@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:15:16 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/14 15:57:42 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/02 14:56:37 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		ptr = malloc(0);
 		return (ptr);
 	}
-	if (INT_MAX / size < nmemb)
+	if (__SIZE_MAX__ / size < nmemb)
 		return (NULL);
 	ptr = malloc(nmemb * size);
 	if (!ptr)
