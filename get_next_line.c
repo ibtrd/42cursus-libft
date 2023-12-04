@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 06:08:18 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/21 23:43:04 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/04 23:59:10 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,44 @@
 
 char	*get_next_line(int fd)
 {
-	static char	*cache[MAX_FD];
+	static char	*cache = NULL;
 	char		*next_line;
 
 	next_line = NULL;
-	if (fd == -42)
+	if (fd < 0 || fd >= MAX_FD || BUFFER_SIZE < 1 || BUFFER_SIZE > INT_MAX / 2)
 	{
-		gnl_freecache(cache);
+		free(cache);
+		cache = NULL;
 		return (NULL);
 	}
-	if (fd < 0 || fd >= MAX_FD || BUFFER_SIZE < 1)
+	cache = gnl_assembler(cache, fd);
+	if (!cache)
 		return (NULL);
-	cache[fd] = gnl_assembler(cache[fd], fd);
-	if (!cache[fd])
-		return (NULL);
-	if (cache[fd][0])
-		next_line = gnl_trimline(cache[fd]);
+	if (cache[0])
+		next_line = gnl_trimline(cache);
 	if (!next_line)
 	{
-		free(cache[fd]);
-		cache[fd] = NULL;
+		free(cache);
+		cache = NULL;
 		return (NULL);
 	}
-	cache[fd] = gnl_trimcache(cache[fd]);
+	cache = gnl_trimcache(cache);
 	return (next_line);
+}
+
+void	gnl_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	if (size == 0)
+		return ;
+	while (src && src[i] && i < size - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
 }
 
 int	gnl_newlinecheck(char *cache)
@@ -52,17 +66,4 @@ int	gnl_newlinecheck(char *cache)
 		i++;
 	}
 	return (0);
-}
-
-void	gnl_freecache(char **cache_array)
-{
-	int	i;
-
-	i = 0;
-	while (i < MAX_FD)
-	{
-		free(cache_array[i]);
-		cache_array[i] = NULL;
-		i++;
-	}
 }

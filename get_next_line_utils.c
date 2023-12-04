@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 06:26:50 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/21 21:22:22 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/03 14:31:51 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 
 char	*gnl_assembler(char *cache, int fd)
 {
-	char	buffer[BUFFER_SIZE + 1];
+	char	*buffer;
 	ssize_t	rd;
 
+	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buffer)
+	{
+		free(cache);
+		return (NULL);
+	}
 	rd = BUFFER_SIZE;
 	while (!cache || (rd > 0 && !gnl_newlinecheck(cache)))
 	{
@@ -31,6 +37,7 @@ char	*gnl_assembler(char *cache, int fd)
 		if (!cache)
 			break ;
 	}
+	free(buffer);
 	return (cache);
 }
 
@@ -42,11 +49,12 @@ char	*gnl_joincache(char *cache, char *buffer, ssize_t rd)
 	buffer[rd] = '\0';
 	len = ft_strlen(cache);
 	new_cache = NULL;
-	new_cache = malloc((len + rd + 1) * sizeof(char));
+	if (len < INT_MAX / 2)
+		new_cache = malloc((len + rd + 1) * sizeof(char));
 	if (new_cache)
 	{
-		ft_strlcpy(new_cache, cache, len + 1);
-		ft_strlcpy(new_cache + len, buffer, rd + 1);
+		gnl_strlcpy(new_cache, cache, len + 1);
+		gnl_strlcpy(new_cache + len, buffer, rd + 1);
 	}
 	free(cache);
 	cache = NULL;
@@ -65,7 +73,7 @@ char	*gnl_trimline(char *cache)
 		len++;
 	next_line = malloc((len + 1) * sizeof(char));
 	if (next_line)
-		ft_strlcpy(next_line, cache, len + 1);
+		gnl_strlcpy(next_line, cache, len + 1);
 	return (next_line);
 }
 
@@ -89,7 +97,7 @@ char	*gnl_trimcache(char *cache)
 			len++;
 		new_cache = malloc((len + 1) * sizeof(char));
 		if (new_cache)
-			ft_strlcpy(new_cache, cache + i, len + 1);
+			gnl_strlcpy(new_cache, cache + i, len + 1);
 	}
 	free(cache);
 	cache = NULL;
