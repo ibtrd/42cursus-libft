@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:07:40 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/23 16:19:17 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/04 14:31:05 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (nb * sign);
 }
-
