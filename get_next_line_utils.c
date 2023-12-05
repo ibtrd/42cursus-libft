@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 06:26:50 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/03 14:31:51 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/05 12:01:54 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*gnl_joincache(char *cache, char *buffer, ssize_t rd)
 	size_t	len;
 
 	buffer[rd] = '\0';
-	len = ft_strlen(cache);
+	len = ft_strlen_protected(cache);
 	new_cache = NULL;
 	if (len < INT_MAX / 2)
 		new_cache = malloc((len + rd + 1) * sizeof(char));
