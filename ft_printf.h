@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 14:29:15 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/07 17:06:10 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/11 19:39:22 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 typedef struct s_format
 {
+	int		fd;
 	char	type;
 	bool	minus;
 	bool	plus;
@@ -46,10 +47,13 @@ typedef struct s_format
 int			ft_printf(const char *str, ...) \
 				__attribute__ ((format (printf, 1, 2)));
 
+int			ft_dprintf(int fd, const char *str, ...) \
+				__attribute__ ((format (printf, 2, 3)));
+
 char		pf_get_type(const char *str);
 int			pf_argument_is_valid(const char *str);
 int			pf_argument_len(const char *str);
-int			pf_convert_percent(void);
+int			pf_convert_percent(int fd);
 int			pf_get_width_value(const char *width);
 int			pf_place_padding(t_format *format, char	*print);
 int			pf_putstr_to_percent(const char *str, int fd);
@@ -80,7 +84,7 @@ ssize_t		pf_print_unsigned_decimal_left(t_format *format, unsigned int nbr);
 ssize_t		pf_print_unsigned_decimal(t_format *format, unsigned int nbr);
 ssize_t		pf_print_upper_hexa_left(t_format *format, int nbr);
 ssize_t		pf_print_upper_hexa(t_format *format, int nbr);
-ssize_t		pf_reading_head(const char *str, va_list *args);
+ssize_t		pf_reading_head(int fd, const char *str, va_list *args);
 void		pf_decimal_maths(t_format *format, int nbr);
 void		pf_format_flags(const char *str, t_format *format);
 void		pf_format_values(const char *str, t_format*format, va_list *args);

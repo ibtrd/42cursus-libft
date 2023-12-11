@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:55:54 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/03 01:34:29 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/11 19:39:57 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ ssize_t	pf_print_upper_hexa(t_format *format, int nbr)
 	if (hexa)
 	{
 		i = ft_strlcat(print, hexa, format->totallen + 1);
-		wr = write(1, print, format->totallen);
+		wr = write(format->fd, print, format->totallen);
 	}
 	free(hexa);
 	free(print);
@@ -73,7 +73,7 @@ ssize_t	pf_print_upper_hexa_left(t_format *format, int nbr)
 	{
 		i = ft_strlcat(print, hexa, format->totallen + 1);
 		ft_memset(print + i, ' ', format->padlen);
-		wr = write(1, print, format->totallen);
+		wr = write(format->fd, print, format->totallen);
 	}
 	free(hexa);
 	free(print);

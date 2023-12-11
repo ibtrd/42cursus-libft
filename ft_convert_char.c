@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 02:56:01 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/02 16:12:31 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/11 19:21:04 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ ssize_t	pf_print_char(t_format *format, char c)
 	if (format->minus == false)
 		print[format->totallen - 1] = c;
 	print[format->totallen] = '\0';
-	wr = write(1, print, format->totallen);
+	wr = write(format->fd, print, format->totallen);
 	free(print);
 	return (wr);
 }

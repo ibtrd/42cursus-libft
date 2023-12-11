@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 22:22:50 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/07 17:03:14 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/11 19:36:53 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ ssize_t	pf_print_string(t_format *format, char *string)
 		i = format->arglen;
 		ft_memset(print + i, ' ', format->padlen);
 	}
-	wr = write(1, print, format->totallen);
+	wr = write(format->fd, print, format->totallen);
 	free(print);
 	return (wr);
 }
@@ -91,7 +91,7 @@ ssize_t	pf_print_null_string(t_format *format)
 		i = format->arglen;
 		ft_memset(print + i, ' ', format->padlen);
 	}
-	wr = write(1, print, format->totallen);
+	wr = write(format->fd, print, format->totallen);
 	free(print);
 	return (wr);
 }

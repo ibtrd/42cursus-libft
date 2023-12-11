@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2023/12/07 17:41:41 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2023/12/11 19:45:21 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC_LIBFT	=	isalpha isdigit isalnum isascii isprint strlen memset bzero \
 
 SRC_GNL		=	get_next_line get_next_line_utils
 
-SRC_PRINTF	=	printf format \
+SRC_PRINTF	=	printf dprintf format \
 				convert_char convert_string \
 				convert_decimal convert_decimal_utils \
 				convert_unsigned_decimal \
@@ -67,7 +67,6 @@ RMDIR		= 	rmdir
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@echo "$(BLUE) Building $(NAME)... $(RESET)"
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 	@echo "$(BLUE) $(NAME) has been created! $(RESET)"
 
@@ -79,13 +78,15 @@ $(BUILD_DIR)%.o : %.c
 
 clean :
 	$(RM) $(BUILD_DIR)
-	@echo "$(YELLOW) Building files removed! $(RESET)"
+	@echo "$(YELLOW) $(NAME) building files removed! $(RESET)"
 	
-fclean : clean
+fclean :
+	$(RM) $(BUILD_DIR)
 	$(RM) $(NAME)
-	@echo "$(YELLOW) $(NAME) removed... $(RESET)"
+	@echo "$(YELLOW) $(NAME) removed! $(RESET)"
 	
-re : fclean all
+re : fclean
+	$(MAKE)
 
 # *** SPECIAL TARGETS ******************************************************** #
 

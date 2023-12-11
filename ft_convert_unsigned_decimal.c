@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:27:25 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/04 14:34:01 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/11 19:39:52 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ ssize_t	pf_print_unsigned_decimal(t_format *format, unsigned int nbr)
 	if (itoa)
 	{
 		i = ft_strlcat(print, itoa, format->totallen + 1);
-		wr = write(1, print, format->totallen);
+		wr = write(format->fd, print, format->totallen);
 	}
 	free(print);
 	free(itoa);
@@ -74,7 +74,7 @@ ssize_t	pf_print_unsigned_decimal_left(t_format *format, unsigned int nbr)
 	{
 		i = ft_strlcat(print, itoa, format->totallen + 1);
 		ft_memset(print + i, ' ', format->padlen);
-		wr = write(1, print, format->totallen);
+		wr = write(format->fd, print, format->totallen);
 	}
 	free(print);
 	free(itoa);

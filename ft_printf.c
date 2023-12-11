@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 15:20:59 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/07 17:03:56 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/11 19:39:10 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_printf(const char *str, ...)
 	total_wr = 0;
 	while (str[i])
 	{
-		wr = pf_reading_head(str + i, &args);
+		wr = pf_reading_head(1, str + i, &args);
 		if (wr == -1)
 			break ;
 		total_wr += wr;
@@ -41,13 +41,14 @@ int	ft_printf(const char *str, ...)
 	return (total_wr);
 }
 
-ssize_t	pf_reading_head(const char *str, va_list *args)
+ssize_t	pf_reading_head(int fd, const char *str, va_list *args)
 {
 	size_t		wr;
 	t_format	format;
 
+	format.fd = fd;
 	if (*str != '%')
-		return (pf_putstr_to_percent(str, 1));
+		return (pf_putstr_to_percent(str, format.fd));
 	pf_init_format_struct(&format);
 	format.type = pf_get_type(str + 1);
 	if (!format.type)
@@ -81,7 +82,7 @@ ssize_t	pf_converter(va_list *args, t_format *format)
 	else if (format->type == 'X')
 		return (pf_convert_upper_hexa(args, format));
 	if (format->type == '%')
-		return (pf_convert_percent());
+		return (pf_convert_percent(format->fd));
 	return (-1);
 }
 

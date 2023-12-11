@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 23:45:49 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/05 15:38:06 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/11 19:39:49 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ssize_t	pf_print_nil_pointer(t_format *format)
 	i = ft_strlcat(print, "(nil)", format->totallen + 1);
 	if (format->minus)
 		ft_memset(print + i, ' ', format->padlen);
-	wr = write(1, print, format->totallen);
+	wr = write(format->fd, print, format->totallen);
 	free(print);
 	return (wr);
 }
@@ -67,7 +67,7 @@ ssize_t	pf_print_pointer(t_format *format, unsigned long long ptr)
 	if (itoa)
 	{
 		i = ft_strlcat(print, itoa, format->totallen + 1);
-		wr = write(1, print, format->totallen);
+		wr = write(format->fd, print, format->totallen);
 	}
 	free(itoa);
 	free(print);
@@ -94,7 +94,7 @@ ssize_t	pf_print_pointer_left(t_format *format, unsigned long long ptr)
 		ft_strlcat(print, itoa, format->totallen + 1);
 		i += format->arglen;
 		ft_memset(print + i, ' ', format->padlen);
-		wr = write(1, print, format->totallen);
+		wr = write(format->fd, print, format->totallen);
 	}
 	free(itoa);
 	free(print);
