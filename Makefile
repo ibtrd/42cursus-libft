@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2023/12/11 19:45:21 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2023/12/13 18:09:47 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,21 @@ NAME = libft.a
 
 # *** SOURCES **************************************************************** #
 
+MISC_DIR	=	misc/
+
 SRC_LIBFT	=	isalpha isdigit isalnum isascii isprint strlen memset bzero \
 				memcpy memmove strlcpy strlcat toupper tolower strchr strrchr \
 				strncmp memchr memcmp strnstr atoi calloc strdup \
 				substr strjoin strtrim split itoa strmapi striteri putchar_fd \
 				putstr_fd putendl_fd putnbr_fd \
 				lstnew lstadd_front lstsize lstlast lstadd_back lstdelone \
-				lstclear lstiter lstmap
+				lstclear lstiter lstmap ischarset itoalen
+
+GNL_DIR		=	get_next_line/
 
 SRC_GNL		=	get_next_line get_next_line_utils
+
+PRINTF_DIR	=	ft_printf/
 
 SRC_PRINTF	=	printf dprintf format \
 				convert_char convert_string \
@@ -32,27 +38,27 @@ SRC_PRINTF	=	printf dprintf format \
 				convert_lower_hexa convert_upper_hexa \
 				convert_percent
 
-SRC			=	ischarset itoalen
+SRCS_DIR	=	srcs/
 
-SRCS 		=	$(addprefix ft_, $(addsuffix .c, $(SRC_LIBFT))) \
-				$(addsuffix .c, $(SRC_GNL)) \
-				$(addprefix ft_, $(addsuffix .c, $(SRC_PRINTF))) \
-				$(addprefix ft_, $(addsuffix .c, $(SRC)))
-				
+SRCS 		=	$(addprefix $(SRCS_DIR)$(MISC_DIR)ft_, $(addsuffix .c, $(SRC_LIBFT))) \
+				$(addprefix $(SRCS_DIR)$(GNL_DIR), $(addsuffix .c, $(SRC_GNL))) \
+				$(addprefix $(SRCS_DIR)$(PRINTF_DIR)ft_, $(addsuffix .c, $(SRC_PRINTF))) \
 
 # *** OBJECTS & DEPENDENCIES ************************************************* #
 
 BUILD_DIR	=	.build/
 
-OBJS 		=	$(SRCS:%.c=$(BUILD_DIR)%.o)
+OBJS 		=	$(SRCS:$(SRCS_DIR)%.c=$(BUILD_DIR)%.o)
 
 DEPS        =	$(OBJS:%.o=%.d)
+
+INCLUDE		=	includes/
 
 # *** CONFIG ***************************************************************** #
 
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
-CPPFLAGS 	=	-MMD -MP
+CPPFLAGS 	=	-MMD -MP $(addprefix -I, $(INCLUDE))
 
 AR			=	ar
 ARFLAGS		=	rcs
@@ -70,7 +76,7 @@ $(NAME) : $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 	@echo "$(BLUE) $(NAME) has been created! $(RESET)"
 
-$(BUILD_DIR)%.o : %.c
+$(BUILD_DIR)%.o : $(SRCS_DIR)%.c
 	@if [ ! -d "$(@D)" ]; then $(MKDIR); fi
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 

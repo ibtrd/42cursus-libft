@@ -6,11 +6,11 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 06:26:50 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/05 12:01:54 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/13 17:39:52 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*gnl_assembler(char *cache, int fd)
 {

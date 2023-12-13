@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/01 16:31:52 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/13 17:41:04 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 
 # include <unistd.h>	// write()
 # include <stdlib.h>	// malloc(), free() ...
-# include <limits.h>	// INT_MIN, INT_MAX ... 
+# include <limits.h>	// INT_MIN, INT_MAX ...
+
+# include "get_next_line.h"
 
 /* defines ********************************************************************/
 
