@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2023/12/15 02:45:39 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2023/12/15 04:48:19 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ NAME = libft.a
 # *** SOURCES **************************************************************** #
 
 MISC_DIR	=	misc/
-
 SRC_LIBFT	=	isalpha isdigit isalnum isascii isprint strlen memset bzero \
 				memcpy memmove strlcpy strlcat toupper tolower strchr strrchr \
 				strncmp memchr memcmp strnstr atoi calloc strdup \
@@ -25,11 +24,9 @@ SRC_LIBFT	=	isalpha isdigit isalnum isascii isprint strlen memset bzero \
 				lstclear lstiter lstmap ischarset itoalen
 
 GNL_DIR		=	get_next_line/
-
 SRC_GNL		=	get_next_line get_next_line_utils get_next_line_multifd
 
 PRINTF_DIR	=	ft_printf/
-
 SRC_PRINTF	=	printf dprintf format \
 				convert_char convert_string \
 				convert_decimal convert_decimal_utils \
@@ -39,7 +36,6 @@ SRC_PRINTF	=	printf dprintf format \
 				convert_percent
 
 SRCS_DIR	=	srcs/
-
 SRCS 		=	$(addprefix $(SRCS_DIR)$(MISC_DIR)ft_, $(addsuffix .c, $(SRC_LIBFT))) \
 				$(addprefix $(SRCS_DIR)$(GNL_DIR), $(addsuffix .c, $(SRC_GNL))) \
 				$(addprefix $(SRCS_DIR)$(PRINTF_DIR)ft_, $(addsuffix .c, $(SRC_PRINTF))) \
@@ -54,10 +50,10 @@ DEPS        =	$(OBJS:%.o=%.d)
 
 INCLUDE		=	includes/
 
-# *** CONFIG ***************************************************************** #
+# *** COMMANDS **************************************************************** #
 
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -g3
 CPPFLAGS 	=	-MMD -MP $(addprefix -I, $(INCLUDE))
 
 AR			=	ar
@@ -66,7 +62,6 @@ ARFLAGS		=	rcs
 RM			=	rm -rf
 
 MKDIR 		= 	mkdir -p $(@D)
-RMDIR		= 	rmdir
 
 # *** TARGETS **************************************************************** #
 
@@ -89,7 +84,7 @@ clean :
 fclean :
 	$(RM) $(BUILD_DIR)
 	$(RM) $(NAME)
-	@echo "$(YELLOW) $(NAME) removed! $(RESET)"
+	@echo "$(YELLOW) $(NAME) files removed! $(RESET)"
 	
 re : fclean
 	$(MAKE)
