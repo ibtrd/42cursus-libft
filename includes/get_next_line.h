@@ -6,14 +6,15 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 06:09:37 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/05 00:02:50 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/15 03:01:04 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include "libft.h"
+# include "libft_str.h"
+
 # include <unistd.h> //Read()
 # include <stdlib.h> //free()
 # include <limits.h> //MAX_INT
@@ -22,15 +23,26 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# define MAX_FD 1024
+typedef struct s_buffer
+{
+	int				fd;
+	char			buffer[BUFFER_SIZE + 1];
+	struct s_buffer	*next;
+}	t_buffer;
 
-char	*get_next_line(int fd);
-char	*gnl_assembler(char *cache, int fd);
-char	*gnl_joincache(char *cache, char *buffer, ssize_t rd);
-char	*gnl_trimcache(char *cache);
-char	*gnl_trimline(char *cache);
-int		gnl_newlinecheck(char *buffer);
-size_t	ft_strlen(char const *str);
-void	gnl_strlcpy(char *dst, const char *src, size_t size);
+char		*get_next_line(int fd);
+
+char		*build_next_line(char *buffer, int fd);
+char		*gnl_assembler(char *next_line, char *buffer, int fd);
+int			gnl_newline_check(char *str);
+char		*gnl_join(char *prev_str, char *buffer);
+size_t		gnl_len_to_newline(char *str);
+void		gnl_reinit_buffer(char	*buffer);
+
+char		*get_next_line_multifd(int fd);
+
+char		*gnl_get_buffer(t_buffer **head, int fd);
+void		gnl_free_fd(t_buffer **head, int fd);
+t_buffer	*gnl_free_all(t_buffer *curr);
 
 #endif

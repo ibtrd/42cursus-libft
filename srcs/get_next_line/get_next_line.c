@@ -6,64 +6,87 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 06:08:18 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/13 17:39:41 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/15 02:46:30 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
 char	*get_next_line(int fd)
 {
-	static char	*cache = NULL;
+	static char	buffer[BUFFER_SIZE + 1];
+
+	if (fd < 0 || BUFFER_SIZE < 1)
+		return (NULL);
+	return (build_next_line(buffer, fd));
+}
+
+char	*build_next_line(char *buffer, int fd)
+{
 	char		*next_line;
 
 	next_line = NULL;
-	if (fd < 0 || fd >= MAX_FD || BUFFER_SIZE < 1 || BUFFER_SIZE > INT_MAX / 2)
+	if (buffer[0])
 	{
-		free(cache);
-		cache = NULL;
-		return (NULL);
+		next_line = gnl_join(NULL, buffer);
+		if (!next_line)
+			return (NULL);
 	}
-	cache = gnl_assembler(cache, fd);
-	if (!cache)
-		return (NULL);
-	if (cache[0])
-		next_line = gnl_trimline(cache);
-	if (!next_line)
+	next_line = gnl_assembler(next_line, buffer, fd);
+	if (!next_line || !next_line[0])
 	{
-		free(cache);
-		cache = NULL;
-		return (NULL);
+		free(next_line);
+		next_line = NULL;
 	}
-	cache = gnl_trimcache(cache);
+	gnl_reinit_buffer(buffer);
 	return (next_line);
 }
 
-void	gnl_strlcpy(char *dst, const char *src, size_t size)
+char	*gnl_assembler(char *next_line, char *buffer, int fd)
 {
-	size_t	i;
+	ssize_t	rd;
 
-	i = 0;
-	if (size == 0)
-		return ;
-	while (src && src[i] && i < size - 1)
+	rd = BUFFER_SIZE;
+	while (rd != 0 && !gnl_newline_check(buffer))
 	{
-		dst[i] = src[i];
-		i++;
+		rd = read(fd, buffer, BUFFER_SIZE);
+		if (rd == -1)
+		{
+			free(next_line);
+			next_line = NULL;
+			break ;
+		}
+		buffer[rd] = '\0';
+		next_line = gnl_join(next_line, buffer);
+		if (!next_line)
+			break ;
 	}
-	dst[i] = '\0';
+	return (next_line);
 }
 
-int	gnl_newlinecheck(char *cache)
+char	*gnl_join(char *prev_str, char *buffer)
 {
+	char	*new_str;
+	size_t	len;
 	size_t	i;
+	size_t	j;
 
-	i = 0;
-	while (cache && cache[i])
+	len = gnl_len_to_newline(buffer);
+	len += ft_strlen_protected(prev_str);
+	new_str = malloc((len + 1) * sizeof(char));
+	if (new_str)
 	{
-		if (cache[i] == '\n')
-			return (1);
-		i++;
+		i = 0;
+		while (prev_str && prev_str[i])
+		{
+			new_str[i] = prev_str[i];
+			i++;
+		}
+		j = 0;
+		while (i + j++ < len)
+			new_str[i + j - 1] = buffer[j - 1];
+		new_str[len] = '\0';
 	}
-	return (0);
+	free(prev_str);
+	return (new_str);
 }

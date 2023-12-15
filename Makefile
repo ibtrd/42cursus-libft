@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2023/12/13 18:09:47 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2023/12/15 02:45:39 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC_LIBFT	=	isalpha isdigit isalnum isascii isprint strlen memset bzero \
 
 GNL_DIR		=	get_next_line/
 
-SRC_GNL		=	get_next_line get_next_line_utils
+SRC_GNL		=	get_next_line get_next_line_utils get_next_line_multifd
 
 PRINTF_DIR	=	ft_printf/
 
