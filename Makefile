@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2023/12/15 04:48:19 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2023/12/19 04:07:36 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,7 @@ SRC_LIBFT	=	isalpha isdigit isalnum isascii isprint strlen memset bzero \
 				memcpy memmove strlcpy strlcat toupper tolower strchr strrchr \
 				strncmp memchr memcmp strnstr atoi calloc strdup \
 				substr strjoin strtrim split itoa strmapi striteri putchar_fd \
-				putstr_fd putendl_fd putnbr_fd \
-				lstnew lstadd_front lstsize lstlast lstadd_back lstdelone \
-				lstclear lstiter lstmap ischarset itoalen
+				putstr_fd putendl_fd putnbr_fd ischarset itoalen \
 
 GNL_DIR		=	get_next_line/
 SRC_GNL		=	get_next_line get_next_line_utils get_next_line_multifd
@@ -35,10 +33,15 @@ SRC_PRINTF	=	printf dprintf format \
 				convert_lower_hexa convert_upper_hexa \
 				convert_percent
 
+LST_DIR		=	lst/
+LST_SRC		=	lstnew lstadd_front lstsize lstlast lstadd_back lstdelone \
+				lstclear lstiter lstmap
+
 SRCS_DIR	=	srcs/
 SRCS 		=	$(addprefix $(SRCS_DIR)$(MISC_DIR)ft_, $(addsuffix .c, $(SRC_LIBFT))) \
 				$(addprefix $(SRCS_DIR)$(GNL_DIR), $(addsuffix .c, $(SRC_GNL))) \
 				$(addprefix $(SRCS_DIR)$(PRINTF_DIR)ft_, $(addsuffix .c, $(SRC_PRINTF))) \
+				$(addprefix $(SRCS_DIR)$(LST_DIR)ft_, $(addsuffix .c, $(LST_SRC))) \
 
 # *** OBJECTS & DEPENDENCIES ************************************************* #
 
@@ -48,7 +51,7 @@ OBJS 		=	$(SRCS:$(SRCS_DIR)%.c=$(BUILD_DIR)%.o)
 
 DEPS        =	$(OBJS:%.o=%.d)
 
-INCLUDE		=	includes/
+INCLUDE		=	incs/
 
 # *** COMMANDS **************************************************************** #
 

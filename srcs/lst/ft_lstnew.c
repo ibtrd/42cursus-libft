@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 19:50:04 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/13 09:33:53 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/19 03:59:45 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
+#include <stdlib.h>
+#include "ft_lst.h"
 
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*tmp;
 
-	tmp = ft_calloc(1, sizeof(t_list));
+	tmp = malloc(sizeof(t_list));
 	if (!tmp)
 		return (NULL);
 	tmp->content = content;
+	tmp->next = NULL;
 	return (tmp);
 }

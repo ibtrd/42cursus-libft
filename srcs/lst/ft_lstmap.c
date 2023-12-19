@@ -6,11 +6,12 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 23:21:28 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/22 16:28:52 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/19 03:58:05 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
+#include "ft_lst.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

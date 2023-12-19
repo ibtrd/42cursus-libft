@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 20:09:59 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/08 20:55:07 by ibertran         ###   ########lyon.fr   */
+/*   Created: 2023/11/08 21:02:41 by ibertran          #+#    #+#             */
+/*   Updated: 2023/12/19 03:56:08 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_lst.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!new)
-		return ;
-	if (*lst)
-		new->next = *lst;
-	*lst = new;
+	t_list	*tail;
+
+	if (!*lst && new)
+		*lst = new;
+	else if (*lst && new)
+	{
+		tail = ft_lstlast(*lst);
+		tail->next = new;
+	}
 }
