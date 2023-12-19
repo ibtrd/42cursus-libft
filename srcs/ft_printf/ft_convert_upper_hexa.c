@@ -6,11 +6,12 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:55:54 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/11 19:39:57 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/19 06:48:57 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 ssize_t	pf_convert_upper_hexa(va_list *args, t_format *format)
 {

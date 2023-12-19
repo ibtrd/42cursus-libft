@@ -6,11 +6,12 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:49:02 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/05 15:30:15 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/19 06:48:32 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 void	pf_pointer_maths(t_format *format, unsigned long long ptr)
 {

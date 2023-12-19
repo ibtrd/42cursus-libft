@@ -6,16 +6,16 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 14:29:15 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/11 19:39:22 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/19 06:45:25 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft.h"
-# include <stdarg.h> 	// va_start va_arg va_copy va_end
-# include <stdbool.h>	// boolean 
+# include <unistd.h>
+# include <stdarg.h>
+# include <stdbool.h>
 
 typedef struct s_format
 {

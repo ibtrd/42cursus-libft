@@ -6,11 +6,12 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 00:17:04 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/05 16:34:54 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/19 06:47:53 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 void	pf_decimal_maths(t_format *format, int nbr)
 {

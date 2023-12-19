@@ -6,11 +6,12 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 02:56:01 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/11 19:21:04 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/19 06:47:07 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 ssize_t	pf_convert_char(va_list *args, t_format *format)
 {
