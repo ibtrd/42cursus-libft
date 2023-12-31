@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2023/12/19 04:07:36 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2023/12/31 02:27:28 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = libft.a
 MISC_DIR	=	misc/
 SRC_LIBFT	=	isalpha isdigit isalnum isascii isprint strlen memset bzero \
 				memcpy memmove strlcpy strlcat toupper tolower strchr strrchr \
-				strncmp memchr memcmp strnstr atoi calloc strdup \
+				strncmp memchr memcmp strnstr atoi calloc strdup isspace \
 				substr strjoin strtrim split itoa strmapi striteri putchar_fd \
 				putstr_fd putendl_fd putnbr_fd ischarset itoalen \
 
