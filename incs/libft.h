@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/19 03:53:52 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2023/12/31 01:03:07 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ int		ft_ulltoalen_base(unsigned long long nbr, char *base);
 char	*ft_ulltoa_base(unsigned long long nbr, char *base);
 int		ft_uitoalen_base(unsigned int n, char *base);
 char	*ft_uitoa_base(unsigned int nbr, char *base);
+int		ft_strcmp(const char *str1, const char *str2);
 
 #endif
