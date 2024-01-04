@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2023/12/31 15:02:15 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/04 09:22:18 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC_LIBFT	=	isalpha isdigit isalnum isascii isprint strlen memset bzero \
 				strncmp memchr memcmp strnstr atoi calloc strdup isspace \
 				substr strjoin strtrim split itoa strmapi striteri putchar_fd \
 				putstr_fd putendl_fd putnbr_fd ischarset itoalen isrange \
+				strcmp
 
 GNL_DIR		=	get_next_line/
 SRC_GNL		=	get_next_line get_next_line_utils get_next_line_multifd
@@ -56,7 +57,7 @@ INCLUDE		=	incs/
 # *** COMMANDS **************************************************************** #
 
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -g3
+CFLAGS		=	-Wall -Wextra -Werror -O3
 CPPFLAGS 	=	-MMD -MP $(addprefix -I, $(INCLUDE))
 
 AR			=	ar
