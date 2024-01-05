@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/05 06:51:00 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/05 07:10:21 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
-	@echo "$(BLUE) $(NAME) has been created! $(RESET)"
+	@echo "$(BLUE) $(NAME) has been built! $(RESET)"
 
 $(BUILD_DIR)%.o : $(SRCS_DIR)%.c
 	@$(MKDIR)
