@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/04 09:22:18 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/05 03:26:12 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,9 +93,12 @@ fclean :
 re : fclean
 	$(MAKE)
 
+norminette :
+	norminette $(SRCS_DIR)
+
 # *** SPECIAL TARGETS ******************************************************** #
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re norminette
 
 # *** FANCY STUFF ************************************************************ #
 
