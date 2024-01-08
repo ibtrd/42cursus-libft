@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/06 08:11:18 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/08 19:20:00 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,11 @@ NAME = libft.a
 
 # *** SOURCES **************************************************************** #
 
--include srcs.mk
+include srcs.mk
 
 # *** OBJECTS & DEPENDENCIES ************************************************* #
 
-ifndef DEBUG
-BUILD_DIR = .build/
-else
-BUILD_DIR = .build/debug/
-endif
+BUILD_DIR := .build/
 
 OBJS = $(SRCS:$(SRCS_DIR)%.c=$(BUILD_DIR)%.o)
 
@@ -32,25 +28,16 @@ HEADERS		=	incs/
 
 # *** TRACE ****************************************************************** #
 
-TRACE_DIR = .build/.trace/
-STD_TRACE = $(TRACE_DIR)std/
-DEBUG_TRACE = $(TRACE_DIR)debug/
+TRACE_DIR = .trace/
 
-ifndef DEBUG
+STD_TRACE = $(TRACE_DIR)
+DEBUG_TRACE = $(TRACE_DIR)debug_
+
 TRACE =	$(STD_TRACE)
-else
-TRACE = $(DEBUG_TRACE)
-endif
 
 # *** CONFIG ***************************************************************** #
 
-ifndef DEBUG
-CC_OPTION = -O3
-else
-CC_OPTION = -g3
-endif
-
-CFLAGS		=	-Wall -Wextra -Werror $(CC_OPTION) -MMD -MP
+CFLAGS		=	-Wall -Wextra -Werror -O3 -MMD -MP
 
 CPPFLAGS 	=	$(addprefix -I, $(HEADERS))
 
@@ -58,8 +45,19 @@ AR			=	ar rc
 
 MKDIR 		= 	mkdir -p $(@D)
 
+MAKE 		+= -j --no-print-directory
+
+# *** DEBUG ****************************************************************** #
+
+ifdef DEBUG
+BUILD_DIR := $(BUILD_DIR)debug/
+TRACE = $(DEBUG_TRACE)
+CFLAGS := $(filter-out -O3,$(CFLAGS)) -g3
+endif
+
 # *** TARGETS **************************************************************** #
 
+.PHONY : all
 all : $(NAME)
 
 $(NAME) : $(OBJS) $(addsuffix $(NAME), $(TRACE))
@@ -77,38 +75,47 @@ $(BUILD_DIR)%.o : $(SRCS_DIR)%.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 $(TRACE)% :
-	$(MKDIR)
-	touch $@
+	@$(MKDIR)
+	@touch $@
 
 -include $(DEPS)
 
+.PHONY : clean
 clean :
+	$(RM) norminette.log
 	rm -rf $(BUILD_DIR)
 	echo "$(YELLOW) $(NAME) building files removed! $(RESET)"
-	
+
+.PHONY : fclean
 fclean :
+	$(RM) norminette.log
 	rm -rf $(BUILD_DIR)
 	$(RM) $(NAME)
 	echo "$(YELLOW) $(NAME) files removed! $(RESET)"
-	
-re : fclean
-	$(MAKE) --no-print-directory
 
+.PHONY : re
+re : fclean
+	$(MAKE) all
+
+.PHONY : debug
 debug :
 	$(MAKE) DEBUG=1
 
+.PHONY : %debug
+%debug :
+	$(MAKE) $(subst debug,,$@) DEBUG=1
+
+.PHONY : norminette
 norminette :
-	mkdir -p $(BUILD_DIR)
-	norminette $(HEADERS) $(SRCS_DIR) > $(BUILD_DIR)norminette.log; echo -n
+	norminette $(HEADERS) $(SRCS_DIR) > norminette.log; echo -n
 	echo "$(NAME):"
-	if [ $$(< $(BUILD_DIR)norminette.log grep Error | wc -l) -eq 0 ]; \
+	if [ $$(< norminette.log grep Error | wc -l) -eq 0 ]; \
 		then echo "Norm check OK!"; \
-		else < $(BUILD_DIR)norminette.log grep Error; fi
+		else < norminette.log grep Error; fi
 
 # *** SPECIAL TARGETS ******************************************************** #
 
-.PHONY : all clean fclean re debug norminette
-.SILENT : clean fclean re debug norminette
+.SILENT : clean fclean re debug %debug norminette
 
 # *** FANCY STUFF ************************************************************ #
 

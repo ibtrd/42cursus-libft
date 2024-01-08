@@ -6,10 +6,11 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:15:16 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/02 14:56:37 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/08 19:39:55 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)

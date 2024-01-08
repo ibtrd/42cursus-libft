@@ -6,10 +6,11 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:31:29 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/13 09:47:07 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/08 19:39:36 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *s)

@@ -6,11 +6,11 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:09:05 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/15 15:37:36 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/08 19:27:36 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftdef.h"
 
 int	ft_isprint(int c)
 {

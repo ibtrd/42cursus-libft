@@ -6,11 +6,11 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 20:51:40 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/16 02:22:47 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/08 19:27:46 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftdef.h"
 
 int	ft_tolower(int c)
 {

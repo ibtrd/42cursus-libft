@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 06:26:50 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/15 02:47:11 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/08 19:00:55 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,3 @@ void	gnl_reinit_buffer(char	*buffer)
 		buffer[j++] = buffer[i++];
 	}
 }
-
-// size_t	ft_strlen_protected(const char *str)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (str && str[i])
-// 		i++;
-// 	return (i);
-// }

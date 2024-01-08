@@ -6,10 +6,11 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:30:06 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/20 10:32:18 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/08 19:39:20 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 static char	**ft_filltab(char **ptr, char const *s, char c, size_t count);

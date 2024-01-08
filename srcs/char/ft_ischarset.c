@@ -6,11 +6,11 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:37:25 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/04 14:33:17 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/08 19:35:02 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 int	ft_ischarset(const char c, const char *set)
 {

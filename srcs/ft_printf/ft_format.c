@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <limits.h>
 #include "libft.h"
+#include "ft_printf.h"
 
 void	pf_init_format_struct(t_format *init)
 {

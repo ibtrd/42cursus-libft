@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/31 15:10:05 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/08 19:59:40 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,7 @@
 
 /* includes *******************************************************************/
 
-# include <unistd.h>	// write()
-# include <stdlib.h>	// malloc(), free() ...
-# include <limits.h>	// INT_MIN, INT_MAX ...
-
-# include "get_next_line.h"
-
-/* defines ********************************************************************/
-
-# define DEL 127
-# define CAPITALIZE 32
+# include <stddef.h>
 
 /* functions ******************************************************************/
 
@@ -58,10 +49,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen_protected(const char *str);
 size_t	ft_strlen(const char *s);
-ssize_t	ft_putchar_fd(char c, int fd);
-ssize_t	ft_putendl_fd(char *str, int fd);
-ssize_t	ft_putnbrbase_fd(int n, char *base, int fd);
-ssize_t	ft_putstr_fd(char *str, int fd);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -76,5 +63,12 @@ char	*ft_ulltoa_base(unsigned long long nbr, char *base);
 int		ft_uitoalen_base(unsigned int n, char *base);
 char	*ft_uitoa_base(unsigned int nbr, char *base);
 int		ft_strcmp(const char *str1, const char *str2);
+
+/* FT_PRINTF ******************************************************************/
+
+int		ft_printf(const char *str, ...) \
+				__attribute__ ((format (printf, 1, 2)));
+int		ft_dprintf(int fd, const char *str, ...) \
+				__attribute__ ((format (printf, 2, 3)));
 
 #endif

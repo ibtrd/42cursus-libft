@@ -6,10 +6,11 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 15:20:59 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/19 06:46:00 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/08 19:50:06 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "ft_printf.h"
 #include "libft.h"
 

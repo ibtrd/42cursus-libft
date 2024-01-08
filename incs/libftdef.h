@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   libftdef.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 17:37:25 by ibertran          #+#    #+#             */
-/*   Updated: 2023/11/23 00:33:44 by ibertran         ###   ########lyon.fr   */
+/*   Created: 2024/01/08 19:25:01 by ibertran          #+#    #+#             */
+/*   Updated: 2024/01/08 19:26:06 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFTDEF_H
+# define LIBFTDEF_H
 
-ssize_t	ft_putstr_fd(char *str, int fd)
-{
-	return (write(fd, str, ft_strlen(str)));
-}
+# define DEL 127
+# define CAPITALIZE 32
+
+#endif
