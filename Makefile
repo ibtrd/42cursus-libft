@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/08 21:18:33 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/08 23:01:28 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,11 +110,11 @@ debug :
 
 .PHONY : norminette
 norminette :
-	pwd
 	norminette $(HEADERS) $(SRCS_DIR) > norminette.log; echo -n
 	if [ $$(< norminette.log grep Error | wc -l) -eq 0 ]; \
-		then echo "Norm check OK!"; \
-		else < norminette.log grep Error; fi
+		then echo "$(NAME): \e[32;49;1mOK!\e[0m"; \
+		else echo "$(NAME): \e[31;49;1mKO!\e[0m" \
+			&& < norminette.log grep Error; fi
 
 # *** SPECIAL TARGETS ******************************************************** #
 
