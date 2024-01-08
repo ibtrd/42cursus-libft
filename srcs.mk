@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 06:32:49 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/05 17:04:34 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/08 20:06:42 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,7 +115,6 @@ SRC_PRINTF = \
 
 MISC_DIR = misc/
 MISC_SRC = \
-	 putchar_fd putstr_fd putendl_fd putnbr_fd
 				
 
 
