@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 06:32:49 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/08 20:06:42 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/08 21:21:01 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,20 +103,21 @@ SRC_GNL = \
 
 PRINTF_DIR = ft_printf/
 SRC_PRINTF = \
-	printf dprintf format \
-	convert_char convert_string \
-	convert_decimal convert_decimal_utils \
+	convert_char \
+	convert_decimal \
+	convert_decimal_utils \
+	convert_lower_hexa \
+	convert_percent \
+	convert_pointer \
+	convert_pointer_utils \
+	convert_string \
 	convert_unsigned_decimal \
-	convert_pointer convert_pointer_utils \
-	convert_lower_hexa convert_upper_hexa \
-	convert_percent
+	convert_upper_hexa \
+	dprintf \
+	format \
+	printf \
 
 # *** MISCELLANEOUS ********************************************************** #
 
 MISC_DIR = misc/
 MISC_SRC = \
-				
-
-
-
-
