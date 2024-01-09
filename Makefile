@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/09 06:01:49 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/09 08:23:31 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,9 @@ MAKE += -j --no-print-directory
 
 ifeq ($(DEBUG),1)
 BUILD_DIR := $(BUILD_DIR)debug/
+
 CFLAGS := $(filter-out -O3,$(CFLAGS)) -g3
+
 TRACE = $(DEBUG_TRACE)
 endif
 
@@ -106,7 +108,7 @@ debug :
 
 .PHONY : %debug
 %debug :
-	$(MAKE) $(subst debug,,$@) DEBUG=1
+	$(MAKE) $(patsubst %debug,%,$@) DEBUG=1
 
 .PHONY : norminette
 norminette :
