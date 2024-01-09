@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/08 23:01:28 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/09 06:01:49 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ MAKE += -j --no-print-directory
 
 # *** DEBUG ****************************************************************** #
 
-ifdef DEBUG
+ifeq ($(DEBUG),1)
 BUILD_DIR := $(BUILD_DIR)debug/
 CFLAGS := $(filter-out -O3,$(CFLAGS)) -g3
 TRACE = $(DEBUG_TRACE)
@@ -63,12 +63,12 @@ all : $(NAME)
 
 $(NAME) : $(OBJS) $(addsuffix $(NAME), $(TRACE))
 	$(AR) $(NAME) $(OBJS)
-ifndef DEBUG
-	@$(RM) $(DEBUG_TRACE)$@
-	@echo "$(BLUE) $(NAME) has been built! $(RESET)"
-else
+ifeq ($(DEBUG),1)
 	@$(RM) $(STD_TRACE)$@
 	@echo "$(BLUE) $(NAME)(DEBUG) has been built! $(RESET)"
+else
+	@$(RM) $(DEBUG_TRACE)$@
+	@echo "$(BLUE) $(NAME) has been built! $(RESET)"
 endif
 
 $(BUILD_DIR)%.o : $(SRCS_DIR)%.c
