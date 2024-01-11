@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 06:32:49 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/08 21:31:05 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/11 00:57:22 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,6 +77,7 @@ MEM_SRC = \
 	memmove \
 	memset \
 	calloc \
+	xmalloc \
 
 # *** LINKED LISTS *********************************************************** #
 
