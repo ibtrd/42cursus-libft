@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/11 00:58:36 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/13 22:24:54 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_uitoa_base(unsigned int nbr, char *base);
 char	*ft_ulltoa_base(unsigned long long nbr, char *base);
 int		ft_atoi(const char *nptr);
+int		ft_close(int *fd);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
