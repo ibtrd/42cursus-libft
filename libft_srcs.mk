@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 06:32:49 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/11 00:57:22 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/13 17:42:21 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,9 @@ SRCS = \
 	$(addprefix $(SRCS_DIR)$(INT_DIR)ft_, $(addsuffix .c, $(INT_SRC))) \
 	$(addprefix $(SRCS_DIR)$(MEM_DIR)ft_, $(addsuffix .c, $(MEM_SRC))) \
 	$(addprefix $(SRCS_DIR)$(LST_DIR)ft_, $(addsuffix .c, $(LST_SRC))) \
-	\
-	$(addprefix $(SRCS_DIR)$(MISC_DIR)ft_, $(addsuffix .c, $(SRC_LIBFT))) \
-	$(addprefix $(SRCS_DIR)$(GNL_DIR), $(addsuffix .c, $(SRC_GNL))) \
-	$(addprefix $(SRCS_DIR)$(PRINTF_DIR)ft_, $(addsuffix .c, $(SRC_PRINTF))) \
+	$(addprefix $(SRCS_DIR)$(GNL_DIR), $(addsuffix .c, $(GNL_SRC))) \
+	$(addprefix $(SRCS_DIR)$(PRINTF_DIR)ft_, $(addsuffix .c, $(PRINTF_SRC))) \
+	$(addprefix $(SRCS_DIR)$(MISC_DIR)ft_, $(addsuffix .c, $(MISC_SRC))) \
 
 # *** CHAR ******************************************************************* #
 
@@ -96,7 +95,7 @@ LST_SRC = \
 # *** GET_NEXT_LINE ********************************************************** #
 
 GNL_DIR = get_next_line/
-SRC_GNL = \
+GNL_SRC = \
 	get_next_line \
 	get_next_line_utils \
 	get_next_line_multifd \
@@ -104,7 +103,7 @@ SRC_GNL = \
 # *** FT_PRINTF ************************************************************** #
 
 PRINTF_DIR = ft_printf/
-SRC_PRINTF = \
+PRINTF_SRC = \
 	convert_char \
 	convert_decimal \
 	convert_decimal_utils \
@@ -123,3 +122,4 @@ SRC_PRINTF = \
 
 MISC_DIR = misc/
 MISC_SRC = \
+	close \

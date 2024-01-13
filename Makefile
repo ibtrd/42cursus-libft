@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/09 10:52:42 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/13 17:45:20 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 # *** FILES  ***************************************************************** #
 
-include srcs.mk
+include libft_srcs.mk
 
 BUILD_DIR := .build/
 
