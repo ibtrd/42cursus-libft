@@ -6,12 +6,12 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:32:58 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/19 03:58:10 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/14 01:21:00 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "ft_lst.h"
+#include "libft_lst.h"
 
 int	ft_lstsize(t_list *lst)
 {

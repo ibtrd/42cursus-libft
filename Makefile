@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/13 17:45:20 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/14 00:06:03 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ AR = ar rc
 
 MKDIR = mkdir -p $(@D)
 
-MAKE += -j --no-print-directory
+MAKEFLAGS = --no-print-directory
 
 # *** DEBUG ****************************************************************** #
 

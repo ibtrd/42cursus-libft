@@ -6,23 +6,20 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 21:12:59 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/19 04:00:14 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/14 03:27:42 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdlib.h>
-#include "ft_lst.h"
+#include "libft_lst.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *curr, void (*del)(void*))
 {
-	if (!del)
-		return ;
-	if (lst)
+	if (curr)
 	{
-		if (lst->content)
-			(*del)(lst->content);
-		free(lst);
-		lst = NULL;
+		if (del && curr->content)
+			(*del)(curr->content);
+		free(curr);
 	}
 }

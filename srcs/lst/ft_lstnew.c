@@ -6,13 +6,13 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 19:50:04 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/19 03:59:45 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/14 01:21:00 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdlib.h>
-#include "ft_lst.h"
+#include "libft_lst.h"
 
 t_list	*ft_lstnew(void *content)
 {

@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    srcs.mk                                            :+:      :+:    :+:    #
+#    libft_srcs.mk                                      :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 06:32:49 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/13 17:42:21 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/14 05:25:01 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ CHAR_SRC = \
 
 STR_DIR = str/
 STR_SRC = \
+	countwords \
 	split \
 	strchr \
 	strcmp \
@@ -123,3 +124,4 @@ PRINTF_SRC = \
 MISC_DIR = misc/
 MISC_SRC = \
 	close \
+	free_array \

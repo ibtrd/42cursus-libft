@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/11 00:58:36 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/14 05:26:46 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@
 
 # include <stddef.h>
 
+# include "libft_lst.h"
+
 /* functions ******************************************************************/
 
+int		ft_countwords(const char *str, const char *sep);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa_base(int nbr, char *base);
 char	*ft_itoa(int n);
@@ -63,6 +66,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_xmalloc(size_t size);
 void	ft_bzero(void *s, size_t n);
+void	ft_free_array(void **array);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 

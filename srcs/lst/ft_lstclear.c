@@ -6,22 +6,28 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 21:41:21 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/19 03:56:28 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/14 03:34:05 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lst.h"
+#include <stddef.h>
+#include "libft_lst.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list **head, void (*del)(void*))
 {
-	t_list	*tmp;
+			#include "libft.h"
+	t_list	*curr;
+	t_list	*temp;
 
-	if (!del)
+	if (!head)
 		return ;
-	while (lst && *lst)
+	curr = *head;
+	while (curr)
 	{
-		tmp = *lst;
-		*lst = (*lst)->next;
-		ft_lstdelone(tmp, del);
+		temp = curr;
+		curr = curr->next;
+
+		ft_lstdelone(temp, del);
 	}
+	*head = NULL;
 }
