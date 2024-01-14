@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/14 00:06:03 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/14 20:00:30 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,6 +117,11 @@ norminette :
 		then echo "$(NAME): \e[32;49;1mOK!\e[0m"; \
 		else echo "$(NAME): \e[31;49;1mKO!\e[0m" \
 			&& < norminette.log grep Error; fi
+
+.PHONY : print%
+print% :
+	@echo $(patsubst print%,%,$@)=
+	@echo $($(patsubst print%,%,$@))
 
 # *** SPECIAL TARGETS ******************************************************** #
 
