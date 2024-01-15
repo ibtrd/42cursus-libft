@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:26:30 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/15 04:35:37 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/15 16:34:34 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,12 @@ int	ft_vector_add(t_vector *v, void *item)
 		status = ft_vector_resize(v, v->capacity * 2);
 		if (status != UNDEFINE)
 		{
-			ft_dprintf(2, "total=%d | item=%d\n", (int)v->total, *((int *)item));
 			ft_memcpy(v->items + v->item_size * v->total, item, v->item_size);
 			v->total++;
 		}
 	}
 	else
 	{
-		ft_dprintf(2, "total=%d | item=%d\n", (int)v->total, *((int *)item));
 		ft_memcpy(v->items + v->item_size * v->total, item, v->item_size);
 		v->total++;
 		status = SUCCESS;
