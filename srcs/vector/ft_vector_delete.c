@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_vector_delete.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 21:41:21 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/15 02:12:58 by ibertran         ###   ########lyon.fr   */
+/*   Created: 2024/01/15 00:57:48 by ibertran          #+#    #+#             */
+/*   Updated: 2024/01/15 02:02:21 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "libft_lst.h"
+#include "libft_vector.h"
+#include "libft.h"
 
-void	ft_lstclear(t_list **head, void (*del)(void*))
+int	ft_vector_delete(t_vector *v, size_t index)
 {
-	t_list	*curr;
-	t_list	*temp;
+	int		status;
+	void	*start;
+	void	*end;
 
-	if (!head)
-		return ;
-	curr = *head;
-	while (curr)
+	status = UNDEFINE;
+	if (v && index < v->total)
 	{
-		temp = curr;
-		curr = curr->next;
-		ft_lstdelone(temp, del);
+		start = ft_vector_get(v, index);
+		end = ft_vector_get(v, v->total - 1);
+		ft_memcpy2(start, start + v->item_size, end);
+		v->total--;
+		if (v->total == v->capacity / 4)
+			ft_vector_resize(v, v->capacity / 2);
 	}
-	*head = NULL;
+	return (status);
 }

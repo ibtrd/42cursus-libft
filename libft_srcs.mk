@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 06:32:49 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/14 05:25:01 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/15 02:10:42 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCS = \
 	$(addprefix $(SRCS_DIR)$(STR_DIR)ft_, $(addsuffix .c, $(STR_SRC))) \
 	$(addprefix $(SRCS_DIR)$(INT_DIR)ft_, $(addsuffix .c, $(INT_SRC))) \
 	$(addprefix $(SRCS_DIR)$(MEM_DIR)ft_, $(addsuffix .c, $(MEM_SRC))) \
+	$(addprefix $(SRCS_DIR)$(VECTOR_DIR)ft_, $(addsuffix .c, $(VECTOR_SRC))) \
 	$(addprefix $(SRCS_DIR)$(LST_DIR)ft_, $(addsuffix .c, $(LST_SRC))) \
 	$(addprefix $(SRCS_DIR)$(GNL_DIR), $(addsuffix .c, $(GNL_SRC))) \
 	$(addprefix $(SRCS_DIR)$(PRINTF_DIR)ft_, $(addsuffix .c, $(PRINTF_SRC))) \
@@ -71,15 +72,28 @@ INT_SRC = \
 MEM_DIR = mem/
 MEM_SRC = \
 	bzero \
+	calloc \
 	memchr \
 	memcmp \
 	memcpy \
+	memcpy2 \
 	memmove \
 	memset \
-	calloc \
 	xmalloc \
 
-# *** LINKED LISTS *********************************************************** #
+# *** VECTOR ***************************************************************** #
+
+VECTOR_DIR = vector/
+VECTOR_SRC = \
+	vector_init \
+	vector_resize \
+	vector_add \
+	vector_set \
+	vector_get \
+	vector_delete \
+	vector_free \
+
+# *** LINKED LIST ************************************************************ #
 
 LST_DIR = lst/
 LST_SRC = \

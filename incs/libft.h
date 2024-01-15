@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/14 05:28:42 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/15 02:06:15 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 
 # include <stddef.h>
 
+# include "libft_vector.h"
 # include "libft_lst.h"
 
 /* functions ******************************************************************/
 
 int		ft_countwords(const char *str, const char *sep);
+void	*ft_memcpy2(void *dest, const void *src_start, void *src_end);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa_base(int nbr, char *base);
 char	*ft_itoa(int n);

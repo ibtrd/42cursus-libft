@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_memcpy2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 21:41:21 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/15 02:12:58 by ibertran         ###   ########lyon.fr   */
+/*   Created: 2023/11/07 15:05:17 by ibertran          #+#    #+#             */
+/*   Updated: 2024/01/15 04:42:03 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "libft_lst.h"
+#include "libft.h"
 
-void	ft_lstclear(t_list **head, void (*del)(void*))
+void	*ft_memcpy2(void *dest, const void *src_start, void *src_end)
 {
-	t_list	*curr;
-	t_list	*temp;
+	size_t	i;
 
-	if (!head)
-		return ;
-	curr = *head;
-	while (curr)
+	i = 0;
+	while (src_start + i <= src_end)
 	{
-		temp = curr;
-		curr = curr->next;
-		ft_lstdelone(temp, del);
+		((char *)dest)[i] = ((char *)src_start)[i];
+		i++;
 	}
-	*head = NULL;
+	return (dest);
 }

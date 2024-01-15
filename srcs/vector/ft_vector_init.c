@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_vector_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 21:41:21 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/15 02:12:58 by ibertran         ###   ########lyon.fr   */
+/*   Created: 2024/01/14 20:38:32 by ibertran          #+#    #+#             */
+/*   Updated: 2024/01/14 23:54:19 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "libft_lst.h"
+#include <stdlib.h>
+#include "libft_vector.h"
 
-void	ft_lstclear(t_list **head, void (*del)(void*))
+int	ft_vector_init(t_vector *v, int item_size)
 {
-	t_list	*curr;
-	t_list	*temp;
-
-	if (!head)
-		return ;
-	curr = *head;
-	while (curr)
-	{
-		temp = curr;
-		curr = curr->next;
-		ft_lstdelone(temp, del);
-	}
-	*head = NULL;
+	v->item_size = item_size;
+	v->items = malloc(item_size * VECTOR_INIT_CAPACITY);
+	if (!v->items)
+		return (UNDEFINE);
+	v->capacity = VECTOR_INIT_CAPACITY;
+	v->total = 0;
+	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/14 20:00:30 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/15 03:59:58 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -122,6 +122,11 @@ norminette :
 print% :
 	@echo $(patsubst print%,%,$@)=
 	@echo $($(patsubst print%,%,$@))
+
+test :
+	make debug
+	cc -g3 -Iincs/ vector_test_main.c libft.a
+	valgrind ./a.out
 
 # *** SPECIAL TARGETS ******************************************************** #
 
