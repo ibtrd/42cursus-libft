@@ -10,84 +10,91 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
+#include <errno.h>
 #include "libft.h"
 
-static int	strtol_init(const char **s, int base);
-static long	strtol_accretion(const char **s, int base);
+static int	strtol_init(const char *s, const char **endptr, int base);
+static long	strtol_accretion(const char *s, const char **endptr, int base, int sign);
+static int	strtol_value(char *value, int base);
+
+#include <stdio.h>
 
 long	ft_strtol(const char *ptr, char **endptr, int base)
 {
-	const char		*s;
+	long			acc;
 	int				sign;
-	unsigned long	acc;
+	const char		*s;
 
 	s = ptr;
-	sign = strtol_init(&s, base);
-	acc = strtol_accretion(&s, base);
+	sign = strtol_init(s, &s, base);
+	acc = strtol_accretion(s, &s, base, sign);
 	if (endptr)
 		*endptr = (char *)s;
 	return (acc * sign);
 }
 
-static int	strtol_init(const char **ptr, int base)
+static int	strtol_init(const char *s, const char **endptr, int base)
 {
-	const char	*s;
-	int			i;
 	int			sign;
+	char		c;
 
-	i = 0;
-	s = *ptr;
-	while (ft_isspace(s[i]))
-		i++;
-	if (s[i] == '-')
+	c = *s++;
+	while (ft_isspace(c))
+		c = *s++;
+	if (c == '-')
 	{
 		sign = -1;
-		i++;
+		c = *s++;
 	}
 	else
 	{
 		sign = 1;
-		if (s[i] == '+')
-			i++;
+		if (c == '+')
+			c = *s++;
 	}
-	if (base == 16 && s[i] == '0' && s[i + 1] == 'x')
-		i += 2;
-	*ptr = s + i;
+	if (base == 16 && c == '0' && *s == 'x')
+		s += 2;
+	*endptr = s - 1;
 	return (sign);
 }
 
-#include <stdio.h>
-
-static long	strtol_accretion(const char **s, int base)
+static long	strtol_accretion(const char *s, const char **endptr, int base, \
+																	int sign)
 {
 	long	acc;
 	char	c;
 
 	acc = 0;
-	c = *(*s++);
+	c = *s++;
 	while (c)
 	{
-		printf("c = %c\n", c);
-		printf("acc = %ld\n", acc);
-		if (c >= '0' && c <= '9')
-			c -= '0';
-		else if (c >= 'A' && c <= 'Z')
-			c -= 'A' - 10;
-		else if (c >= 'a' && c <= 'z')
-			c -= 'z' - 10;
-		else
+		if (strtol_value(&c, base) == -1)
 			break ;
-		printf("c = %d", (int)c);
-		if (c >= base)
-			break ;
-		else
-			acc = acc * 10 + c;
-		c = *(*s++);
+		if (sign == 1 && (LONG_MAX / 10 < acc || 10 * acc > LONG_MAX - c))
+			errno = ERANGE;
+		if (sign == -1 && (LONG_MIN / 10 > acc || 10 * -acc < LONG_MIN + c))
+			errno = ERANGE;
+		acc = acc * 10 + c;
+		c = *s++;
 	}
+	*endptr = s;
 	return (acc);
 }
 
-// static char	get_add_value(char c)
-// {
+static int	strtol_value(char *value, int base)
+{
+	const char	c = *value;
 
-// }
+	if (c >= '0' && c <= '9')
+		*value -= '0';
+	else if (c >= 'A' && c <= 'Z')
+		*value -= 'A' - 10;
+	else if (c >= 'a' && c <= 'z')
+		*value -= 'a' - 10;
+	else
+		return (-1);
+	if (*value >= base)
+		return (-1);
+	return (0);
+}
