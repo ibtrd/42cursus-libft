@@ -14,35 +14,35 @@
 #include <errno.h>
 #include "libft.h"
 
-static int	strtol_init(const char *s, const char **endptr, int *base);
-static long	strtol_accretion(const char *s, const char **endptr, int base, \
+static int	strtoi_init(const char *s, const char **endptr, int *base);
+static int	strtoi_accretion(const char *s, const char **endptr, int base, \
 																	int sign);
-static int	strtol_value(char *value, int base);
+static int	strtoi_value(char *value, int base);
 
-long	ft_strtol(const char *ptr, char **endptr)
+int	ft_strtoi(const char *ptr, char **endptr)
 {
-	unsigned long	acc;
+	unsigned int	acc;
 	int				base;
 	int				sign;
 	const char		*s;
 
 	s = ptr;
 	base = 10;
-	sign = strtol_init(s, &s, &base);
-	acc = strtol_accretion(s, &s, base, sign);
+	sign = strtoi_init(s, &s, &base);
+	acc = strtoi_accretion(s, &s, base, sign);
 	if (endptr)
 		*endptr = (char *)s;
 	if (errno == ERANGE)
 	{
 		if (sign == 1)
-			return (LONG_MAX);
+			return (INT_MAX);
 		else
-			return (LONG_MIN);
+			return (INT_MIN);
 	}
 	return (acc * sign);
 }
 
-static int	strtol_init(const char *s, const char **endptr, int *base)
+static int	strtoi_init(const char *s, const char **endptr, int *base)
 {
 	int			sign;
 	char		c;
@@ -70,21 +70,21 @@ static int	strtol_init(const char *s, const char **endptr, int *base)
 	return (sign);
 }
 
-static long	strtol_accretion(const char *s, const char **endptr, int base, \
+static int	strtoi_accretion(const char *s, const char **endptr, int base, \
 																	int sign)
 {
-	long	acc;
+	int		acc;
 	char	c;
 
 	acc = 0;
 	c = *s++;
 	while (c)
 	{
-		if (strtol_value(&c, base) == -1)
+		if (strtoi_value(&c, base) == -1)
 			break ;
-		if (sign == 1 && (LONG_MAX / base < acc || base * acc > LONG_MAX - c))
+		if (sign == 1 && (INT_MAX / base < acc || base * acc > INT_MAX - c))
 			errno = ERANGE;
-		if (sign == -1 && (LONG_MIN / base > acc || base * -acc < LONG_MIN + c))
+		if (sign == -1 && (INT_MIN / base > acc || base * -acc < INT_MIN + c))
 			errno = ERANGE;
 		acc = acc * base + c;
 		c = *s++;
@@ -93,7 +93,7 @@ static long	strtol_accretion(const char *s, const char **endptr, int base, \
 	return (acc);
 }
 
-static int	strtol_value(char *value, int base)
+static int	strtoi_value(char *value, int base)
 {
 	const char	c = *value;
 
@@ -113,6 +113,5 @@ static int	strtol_value(char *value, int base)
 		errno = EINVAL;
 		return (-1);
 	}
-	return (0);
 	return (0);
 }
