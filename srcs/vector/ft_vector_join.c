@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_init.c                                   :+:      :+:    :+:   */
+/*   ft_vector_join.c.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/14 20:38:32 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/18 04:32:23 by ibertran         ###   ########lyon.fr   */
+/*   Created: 2024/01/14 23:55:07 by ibertran          #+#    #+#             */
+/*   Updated: 2024/01/18 04:48:32 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "ft_vector.h"
+#include "libft.h"
 
-int	ft_vector_init(t_vector *v, int item_size)
+int	ft_vector_join(t_vector *v, void *items, size_t n)
 {
+	int	status;
+
 	if (!v)
 		return (FAILURE);
-	v->item_size = item_size;
-	v->items = malloc(item_size * VECTOR_INIT_CAPACITY);
-	if (!v->items)
-		return (FAILURE);
-	v->capacity = VECTOR_INIT_CAPACITY;
-	v->total = 0;
-	if (item_size == 1 || item_size == 8)
-		v->null_term = true;
-	else
-		v->null_term = false;
-	return (SUCCESS);
+	while (v->total + v->null_term + n >= v->capacity)
+	{
+		status = ft_vector_resize(v, v->capacity << 1);
+		if (status != SUCCESS)
+			return (status);
+	}
+	ft_memcpy(v->items + v->item_size * v->total, items, v->item_size * n);
+	v->total += n;
+	return (status);
 }
