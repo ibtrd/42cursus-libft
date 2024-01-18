@@ -104,10 +104,7 @@ static int	strtoi_value(char *value, int base)
 	else if (c >= 'a' && c <= 'z')
 		*value -= 'a' - 10;
 	else
-	{
-		errno = EINVAL;
 		return (-1);
-	}
 	if (*value >= base)
 	{
 		errno = EINVAL;

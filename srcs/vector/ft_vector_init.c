@@ -6,12 +6,12 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 20:38:32 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/14 23:54:19 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/18 04:02:46 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft_vector.h"
+#include "ft_vector.h"
 
 int	ft_vector_init(t_vector *v, int item_size)
 {

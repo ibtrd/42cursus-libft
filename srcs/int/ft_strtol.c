@@ -89,7 +89,7 @@ static long	strtol_accretion(const char *s, const char **endptr, int base, \
 		acc = acc * base + c;
 		c = *s++;
 	}
-	*endptr = s;
+	*endptr = s - 1;
 	return (acc);
 }
 
@@ -104,15 +104,11 @@ static int	strtol_value(char *value, int base)
 	else if (c >= 'a' && c <= 'z')
 		*value -= 'a' - 10;
 	else
-	{
-		errno = EINVAL;
 		return (-1);
-	}
 	if (*value >= base)
 	{
 		errno = EINVAL;
 		return (-1);
 	}
-	return (0);
 	return (0);
 }

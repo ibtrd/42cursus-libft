@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_vector.h                                     :+:      :+:    :+:   */
+/*   ft_vector.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,13 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_VECTOR_H
-# define LIBFT_VECTOR_H
+#ifndef FT_VECTOR_H
+# define FT_VECTOR_H
 
 # include <stddef.h>
 
 # define VECTOR_INIT_CAPACITY 6
 # define UNDEFINE -1
+# define FAILURE -1
 # define SUCCESS 0
 
 typedef struct s_vector
@@ -34,5 +35,6 @@ int		ft_vector_init(t_vector *v, int item_size);
 int		ft_vector_resize(t_vector *v, int capacity);
 int		ft_vector_set(t_vector *v, size_t index, void *item);
 void	*ft_vector_get(t_vector *v, size_t index);
+int		ft_vector_trim(t_vector *v);
 
 #endif
