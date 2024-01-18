@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 06:32:49 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/16 22:31:37 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/18 04:07:05 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ INT_SRC = \
 	itoalen \
 	strtoi \
 	strtol \
+	abs \
 
 # *** MEMORY ***************************************************************** #
 
@@ -94,6 +95,7 @@ VECTOR_SRC = \
 	vector_get \
 	vector_delete \
 	vector_free \
+	vector_trim \
 
 # *** LINKED LIST ************************************************************ #
 
