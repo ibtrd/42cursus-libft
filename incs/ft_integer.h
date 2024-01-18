@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_integer.h                                    :+:      :+:    :+:   */
+/*   ft_integer.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_INTEGER_H
-# define LIBFT_INTEGER_H
+#ifndef FT_INTEGER_H
+# define FT_INTEGER_H
 
 int		ft_strtoi(const char *ptr, char **endptr);
 long	ft_strtol(const char *ptr, char **endptr);
