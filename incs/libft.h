@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/18 04:19:20 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/19 06:40:29 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int		ft_isascii(int c);
 int		ft_ischarset(const char c, const char *set);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
-int		ft_isrange(int c, int start, int end);
 int		ft_isspace(int c);
 int		ft_itoalen_base(int n, char *base);
 int		ft_itoalen(int n);
