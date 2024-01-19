@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 00:57:48 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/18 04:02:46 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/19 09:07:59 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_vector_delete(t_vector *v, size_t index)
 	void	*start;
 	void	*end;
 
-	status = UNDEFINE;
+	status = UNDEFINED;
 	if (v && index < v->total)
 	{
 		start = ft_vector_get(v, index);

@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 20:50:29 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/18 04:14:48 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/19 09:08:16 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_vector_resize(t_vector *v, int capacity)
 
 	if (!v)
 		return (FAILURE);
-	status = UNDEFINE;
+	status = UNDEFINED;
 	new_items = malloc(v->item_size * capacity);
 	if (new_items)
 	{
