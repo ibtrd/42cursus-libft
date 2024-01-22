@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:55:07 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/19 09:08:21 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/20 15:19:35 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_vector_set(t_vector *v, size_t index, void *item)
 	status = UNDEFINED;
 	if (index < v->total)
 	{
-		ft_memcpy(v->items + index * v->item_size, item, v->item_size);
+		ft_memcpy(v->ptr + index * v->size, item, v->size);
 		status = SUCCESS;
 	}
 	return (status);

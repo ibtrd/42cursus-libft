@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_join.c.c                                 :+:      :+:    :+:   */
+/*   ft_vector_join.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:55:07 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/18 04:48:32 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/20 18:48:46 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ int	ft_vector_join(t_vector *v, void *items, size_t n)
 
 	if (!v)
 		return (FAILURE);
-	while (v->total + v->null_term + n >= v->capacity)
+	while (v->total + n >= v->capacity - 1)
 	{
 		status = ft_vector_resize(v, v->capacity << 1);
 		if (status != SUCCESS)
 			return (status);
 	}
-	ft_memcpy(v->items + v->item_size * v->total, items, v->item_size * n);
+	ft_memcpy(v->ptr + v->size * v->total, items, v->size * n);
+	ft_memset(v->ptr + v->size * v->total + v->size * n, '\0', v->size);
 	v->total += n;
-	return (status);
+	return (SUCCESS);
 }
