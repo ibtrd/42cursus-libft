@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/19 06:40:29 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/19 21:10:16 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		ft_dprintf(int fd, const char *str, ...) \
 
 /* GET_NEXT_LINE **************************************************************/
 
-char	*get_next_line_multifd(int fd);
-char	*get_next_line(int fd);
+// char	*get_next_line_multifd(int fd);
+// char	*get_next_line(int fd);
 
 #endif

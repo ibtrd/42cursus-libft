@@ -5,88 +5,82 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 06:08:18 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/15 02:46:30 by ibertran         ###   ########lyon.fr   */
+/*   Created: 2024/01/19 19:14:22 by ibertran          #+#    #+#             */
+/*   Updated: 2024/01/20 18:07:24 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+static int	gnl_read(int fd, t_vector *v, char *buffer);
+static int	gnl_join(t_vector *v, char *buffer);
+static int	gnl_failure(t_vector *v, char **line);
+
+int	get_next_line(int fd, char **line)
 {
 	static char	buffer[BUFFER_SIZE + 1];
+	t_vector	v;
+	int			status;
 
-	if (fd < 0 || BUFFER_SIZE < 1)
-		return (NULL);
-	return (build_next_line(buffer, fd));
-}
-
-char	*build_next_line(char *buffer, int fd)
-{
-	char		*next_line;
-
-	next_line = NULL;
+	if (fd < 0)
+		return (gnl_failure(NULL, line));
+	status = ft_vector_init(&v, sizeof(char));
+	if (status != SUCCESS)
+		return (gnl_failure(NULL, line));
 	if (buffer[0])
-	{
-		next_line = gnl_join(NULL, buffer);
-		if (!next_line)
-			return (NULL);
-	}
-	next_line = gnl_assembler(next_line, buffer, fd);
-	if (!next_line || !next_line[0])
-	{
-		free(next_line);
-		next_line = NULL;
-	}
-	gnl_reinit_buffer(buffer);
-	return (next_line);
+		status = gnl_join(&v, buffer);
+	if (status == FAILURE)
+		return (gnl_failure(&v, line));
+	else if (status != GNL)
+		status = gnl_read(fd, &v, buffer);
+	if (status == FAILURE)
+		return (gnl_failure(&v, line));
+	if (status == GNL || status == SUCCESS)
+		ft_vector_trim(&v, v.total + 1);
+	*line = v.ptr;
+	return (status);
 }
 
-char	*gnl_assembler(char *next_line, char *buffer, int fd)
+static int	gnl_read(int fd, t_vector *v, char *buffer)
 {
 	ssize_t	rd;
+	int		status;
 
 	rd = BUFFER_SIZE;
-	while (rd != 0 && !gnl_newline_check(buffer))
+	while (rd > 0)
 	{
 		rd = read(fd, buffer, BUFFER_SIZE);
-		if (rd == -1)
-		{
-			free(next_line);
-			next_line = NULL;
-			break ;
-		}
 		buffer[rd] = '\0';
-		next_line = gnl_join(next_line, buffer);
-		if (!next_line)
-			break ;
+		if (rd == -1)
+			return (FAILURE);
+		status = gnl_join(v, buffer);
+		if (status != SUCCESS)
+			return (status);
 	}
-	return (next_line);
+	ft_vector_free(v);
+	return (GNL_EOF);
 }
 
-char	*gnl_join(char *prev_str, char *buffer)
+static int	gnl_join(t_vector *v, char *buffer)
 {
-	char	*new_str;
-	size_t	len;
-	size_t	i;
-	size_t	j;
+	char	*endl;
 
-	len = gnl_len_to_newline(buffer);
-	len += ft_strlen_protected(prev_str);
-	new_str = malloc((len + 1) * sizeof(char));
-	if (new_str)
+	endl = ft_strchr(buffer, '\n');
+	if (!endl)
+		return (ft_vector_join(v, buffer, ft_strlen(buffer)));
+	else
 	{
-		i = 0;
-		while (prev_str && prev_str[i])
-		{
-			new_str[i] = prev_str[i];
-			i++;
-		}
-		j = 0;
-		while (i + j++ < len)
-			new_str[i + j - 1] = buffer[j - 1];
-		new_str[len] = '\0';
+		if (ft_vector_join(v, buffer, endl - buffer + 1) == -1)
+			return (FAILURE);
+		ft_strlcpy(buffer, endl + 1, BUFFER_SIZE);
+		return (GNL);
 	}
-	free(prev_str);
-	return (new_str);
+}
+
+static int	gnl_failure(t_vector *v, char **line)
+{
+	if (v)
+		ft_vector_free(v);
+	*line = NULL;
+	return (FAILURE);
 }
