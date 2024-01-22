@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 06:32:49 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/19 06:12:40 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/20 18:06:48 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,8 +118,6 @@ LST_SRC = \
 GNL_DIR = get_next_line/
 GNL_SRC = \
 	get_next_line \
-	get_next_line_utils \
-	get_next_line_multifd \
 
 # *** FT_PRINTF ************************************************************** #
 
