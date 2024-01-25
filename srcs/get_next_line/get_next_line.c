@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 19:14:22 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/20 18:07:24 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/25 02:55:48 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ static int	gnl_read(int fd, t_vector *v, char *buffer)
 		if (status != SUCCESS)
 			return (status);
 	}
-	ft_vector_free(v);
+	if (!v->total)
+		ft_vector_free(v);
 	return (GNL_EOF);
 }
 
