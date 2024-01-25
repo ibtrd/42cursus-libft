@@ -6,13 +6,13 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 03:01:36 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/25 03:36:15 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/25 03:48:26 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strtok(char *s, const char *delimiters)
+char	*ft_strtok(char *s, const char *delimiters)
 {
 	static char	*last = NULL;
 	char		c;
