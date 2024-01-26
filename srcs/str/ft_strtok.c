@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 03:01:36 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/25 03:48:26 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/25 21:17:55 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,3 @@ char	*ft_strtok(char *s, const char *delimiters)
 	last = s;
 	return (tok);
 }
-
-// #include <stdio.h>
-
-// int	main(int ac, char **av)
-// {
-// 	char	*s;
-// 	int 	i;
-
-// 	s = strtok(av[1], " ");
-// 	while (s)
-// 	{
-// 		printf("strtok%d=%s|\n", i++, s);
-// 		s = strtok(NULL, " ");
-// 	}
-// 	s = strtok(av[2], " ");
-// 	while (s)
-// 	{
-// 		printf("strtok%d=%s|\n", i++, s);
-// 		s = strtok(NULL, " ");
-// 	}
-// }
