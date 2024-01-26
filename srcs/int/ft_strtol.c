@@ -29,12 +29,6 @@ long	ft_strtol(const char *ptr, char **endptr)
 	s = ptr;
 	base = 10;
 	sign = strtol_init(s, &s, &base);
-	if (!endptr)
-	{
-		errno = EINVAL;
-		*endptr = (char *)s;
-		return (0);
-	}
 	acc = strtol_accretion(s, &s, base, sign);
 	if (endptr)
 		*endptr = (char *)s;
