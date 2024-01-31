@@ -16,7 +16,7 @@
 int		ft_strtoi(const char *ptr, char **endptr);
 long	ft_strtol(const char *ptr, char **endptr);
 int		ft_abs(int x);
-double	ft_absd(double x);
+float	ft_absd(float x);
 int		ft_isrange(int c, int start, int end);
 
 #endif

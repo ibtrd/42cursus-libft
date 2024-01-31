@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 06:32:49 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/25 03:25:02 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/01/31 02:02:02 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,14 +63,14 @@ STR_SRC = \
 
 INT_DIR = int/
 INT_SRC = \
+	abs \
 	atoi \
+	fabs \
 	isrange \
 	itoa \
 	itoalen \
 	strtoi \
 	strtol \
-	abs \
-	absd \
 
 # *** MEMORY ***************************************************************** #
 
