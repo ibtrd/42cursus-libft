@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/25 03:48:22 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/01/31 04:03:07 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_bzero(void *s, size_t n);
 void	ft_free_array(void **array);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-char	*ft_strtok(char *str, const char *delimiters);;
+char	*ft_strtok(char *str, const char *delimiters);
 
 /* FT_PRINTF ******************************************************************/
 
