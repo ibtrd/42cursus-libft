@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2024/01/15 03:59:58 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/02/15 01:49:51 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,119 +18,117 @@ include libft_srcs.mk
 
 BUILD_DIR := .build/
 
+OBJS = $(patsubst %.c,$(BUILD_DIR)%.o,$(SRCS))
 OBJS = $(SRCS:$(SRCS_DIR)%.c=$(BUILD_DIR)%.o)
 
-DEPS = $(OBJS:%.o=%.d)
+DEPS = $(patsubst %.o,%.d,$(OBJS))
+-include $(DEPS)
 
-HEADERS = incs/
-
-# *** TRACE ****************************************************************** #
-
-TRACE_DIR = .trace/
-
-STD_TRACE = $(TRACE_DIR)
-
-TRACE =	$(STD_TRACE)
-
-# *** COMPILER *************************************************************** #
-
-CFLAGS = -Wall -Wextra -Werror -O3 -MMD -MP
-
-CPPFLAGS = $(addprefix -I, $(HEADERS))
+INCS_DIR = incs/
 
 # *** CONFIG ***************************************************************** #
 
-AR = ar rc
+CFLAGS		=	-Wall -Wextra -Werror $(OFLAGS)
+OFLAGS 		=	-O3
 
-MKDIR = mkdir -p $(@D)
+CPPFLAGS	= 	$(addprefix -I, $(INCS_DIR)) \
+				-MMD -MP \
 
-MAKEFLAGS = --no-print-directory
+ARFLAGS 	=	rc
 
-# *** DEBUG ****************************************************************** #
+MAKEFLAGS	=	--no-print-directory
 
-ifeq ($(DEBUG),1)
-BUILD_DIR := $(BUILD_DIR)debug/
+# *** COMPILATION MODES ****************************************************** #
 
-CFLAGS := $(filter-out -O3,$(CFLAGS)) -g3
+MODE_TRACE = .trace 
+LAST_MODE = $(shell cat $(MODE_TRACE) 2>/dev/null)
 
-TRACE = $(DEBUG_TRACE)
+MODE ?=
+
+ifneq ($(MODE),)
+BUILD_DIR := $(BUILD_DIR)$(MODE)/
 endif
 
-DEBUG_TRACE = $(TRACE_DIR)debug_
+ifeq ($(MODE),debug)
+CFLAGS := $(filter-out $(OFLAGS),$(CFLAGS)) -g3
+else ifeq ($(MODE),fsanitize)
+CFLAGS := $(filter-out $(OFLAGS),$(CFLAGS)) -g3 -fsanitize=address
+else ifneq ($(MODE),)
+ERROR = MODE
+endif
+
+ifneq ($(LAST_MODE),$(MODE))
+$(NAME) : FORCE
+endif
 
 # *** TARGETS **************************************************************** #
 
 .PHONY : all
 all : $(NAME)
 
-$(NAME) : $(OBJS) $(addsuffix $(NAME), $(TRACE))
-	$(AR) $(NAME) $(OBJS)
-ifeq ($(DEBUG),1)
-	@$(RM) $(STD_TRACE)$@
-	@echo "$(BLUE) $(NAME)(DEBUG) has been built! $(RESET)"
+$(NAME) : $(OBJS) | ERROR_CHECK
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	@echo "$(MODE)" > $(MODE_TRACE)
+ifneq ($(MODE),)
+	@echo "$(GREEN) $(NAME)($(MODE)) has been built! $(RESET)"
 else
-	@$(RM) $(DEBUG_TRACE)$@
-	@echo "$(BLUE) $(NAME) has been built! $(RESET)"
+	@echo "$(GREEN) $(NAME) has been built! $(RESET)"
 endif
 
-$(BUILD_DIR)%.o : $(SRCS_DIR)%.c
-	@$(MKDIR)
+$(BUILD_DIR)%.o : $(SRCS_DIR)%.c | ERROR_CHECK
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
-
-$(TRACE)% :
-	@$(MKDIR)
-	@touch $@
-
--include $(DEPS)
 
 .PHONY : clean
 clean :
-	rm -rf $(BUILD_DIR)
-	rm -rf $(TRACE_DIR)
-	$(RM) norminette.log
+	rm -rf $(BUILD_DIR) $(LAST_MODE_FILE)
 	echo "$(YELLOW) $(NAME) building files removed! $(RESET)"
 
 .PHONY : fclean
 fclean :
-	$(RM) $(NAME)
-	rm -rf $(BUILD_DIR)
-	rm -rf $(TRACE_DIR)
-	$(RM) norminette.log
+	rm -rf $(BUILD_DIR) $(LAST_MODE_FILE) $(NAME)
 	echo "$(YELLOW) $(NAME) files removed! $(RESET)"
 
 .PHONY : re
 re : fclean
-	$(MAKE) all
+	$(MAKE)
 
 .PHONY : debug
 debug :
-	$(MAKE) DEBUG=1
+	$(MAKE) MODE=debug
 
-.PHONY : %debug
-%debug :
-	$(MAKE) $(patsubst %debug,%,$@) DEBUG=1
+.PHONY : fsanitize
+fsanitize :
+	$(MAKE) MODE=fsanitize
 
 .PHONY : norminette
 norminette :
-	norminette $(HEADERS) $(SRCS_DIR) > norminette.log; echo -n
+	norminette $(INCS_DIR) $(SRCS_DIR) > norminette.log || true
 	if [ $$(< norminette.log grep Error | wc -l) -eq 0 ]; \
 		then echo "$(NAME): \e[32;49;1mOK!\e[0m"; \
 		else echo "$(NAME): \e[31;49;1mKO!\e[0m" \
 			&& < norminette.log grep Error; fi
+	$(RM) norminette.log
 
 .PHONY : print%
 print% :
 	@echo $(patsubst print%,%,$@)=
 	@echo $($(patsubst print%,%,$@))
 
-test :
-	make debug
-	cc -g3 -Iincs/ vector_test_main.c libft.a
-	valgrind ./a.out
-
 # *** SPECIAL TARGETS ******************************************************** #
 
-.SILENT : clean fclean re debug %debug norminette
+.DEFAULT_GOAL := all
+
+.SILENT : clean fclean re debug %debug fsanitize norminette
+
+.PHONY : FORCE
+FORCE :
+
+.PHONY : ERROR_CHECK
+ERROR_CHECK :
+ifeq ($(ERROR),MODE)
+	$(error Invalid mode: $(MODE))
+endif
 
 # *** FANCY STUFF ************************************************************ #
 
