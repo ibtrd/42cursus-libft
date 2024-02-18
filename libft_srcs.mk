@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 06:32:49 by ibertran          #+#    #+#              #
-#    Updated: 2024/02/16 11:05:22 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/02/18 21:55:55 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -145,3 +145,4 @@ MISC_DIR = misc/
 MISC_SRC = \
 	close \
 	free_array \
+	free_2darray_char \
