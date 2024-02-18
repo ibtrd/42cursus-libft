@@ -6,12 +6,12 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 00:57:48 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/20 15:17:19 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/02/18 22:13:42 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_vector.h"
-#include "libft.h"
+#include "ft_mem.h"
 
 int	ft_vector_delete(t_vector *v, size_t index)
 {

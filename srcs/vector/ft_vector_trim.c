@@ -6,13 +6,14 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 04:01:20 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/20 16:05:53 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/02/18 22:14:39 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
 #include "ft_vector.h"
-#include "libft.h"
+#include "ft_mem.h"
 
 int	ft_vector_trim(t_vector *v, size_t capacity)
 {

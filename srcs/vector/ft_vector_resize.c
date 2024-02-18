@@ -6,13 +6,14 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 20:50:29 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/20 18:49:43 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/02/18 22:14:26 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+
 #include "ft_vector.h"
+#include "ft_mem.h"
 
 int	ft_vector_resize(t_vector *v, size_t capacity)
 {
