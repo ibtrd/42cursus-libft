@@ -6,11 +6,11 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:09:59 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/14 01:21:00 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/02/19 00:50:26 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_lst.h"
+#include "ft_lst.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

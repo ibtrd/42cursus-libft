@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2024/02/18 21:54:42 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/02/19 00:51:23 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 
 # include <stddef.h>
 
-# include "ft_integer.h"
-# include "libft_lst.h"
-# include "ft_vector.h"
-# include "ft_string.h"
-# include "ft_mem.h"
 # include "ft_char.h"
+# include "ft_integer.h"
+# include "ft_lst.h"
+# include "ft_mem.h"
+# include "ft_string.h"
+# include "ft_vector.h"
 
 /* functions ******************************************************************/
 

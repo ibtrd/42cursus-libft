@@ -6,7 +6,7 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 11:21:32 by ibertran          #+#    #+#              #
-#    Updated: 2024/02/15 01:49:51 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/02/18 22:17:10 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,9 +70,9 @@ $(NAME) : $(OBJS) | ERROR_CHECK
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 	@echo "$(MODE)" > $(MODE_TRACE)
 ifneq ($(MODE),)
-	@echo "$(GREEN) $(NAME)($(MODE)) has been built! $(RESET)"
+	@echo "$(BLUE) $(NAME)($(MODE)) has been built! $(RESET)"
 else
-	@echo "$(GREEN) $(NAME) has been built! $(RESET)"
+	@echo "$(BLUE) $(NAME) has been built! $(RESET)"
 endif
 
 $(BUILD_DIR)%.o : $(SRCS_DIR)%.c | ERROR_CHECK

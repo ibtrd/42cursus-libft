@@ -6,12 +6,13 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 21:41:21 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/15 02:12:58 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/02/19 00:50:33 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "libft_lst.h"
+
+#include "ft_lst.h"
 
 void	ft_lstclear(t_list **head, void (*del)(void*))
 {

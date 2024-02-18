@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_lst.h                                        :+:      :+:    :+:   */
+/*   ft_lst.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 03:18:40 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/15 02:12:13 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/02/19 00:50:13 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_LST_H
-# define LIBFT_LST_H
+#ifndef FT_LST_H
+# define FT_LST_H
 
 typedef struct s_list
 {
