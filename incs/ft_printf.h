@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 14:29:15 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/08 20:05:02 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/02/19 17:49:48 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_format
 # define UPPER_HEXA "0123456789ABCDEF"
 
 char	pf_get_type(const char *str);
-int		pf_argument_is_valid(const char *str);
 int		pf_argument_len(const char *str);
 int		pf_convert_percent(int fd);
 int		pf_get_width_value(const char *width);

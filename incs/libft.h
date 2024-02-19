@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2024/02/19 00:51:23 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/02/19 17:49:34 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int		ft_itoalen_base(int n, char *base);
 int		ft_itoalen(int n);
 int		ft_uitoalen_base(unsigned int n, char *base);
 int		ft_ulltoalen_base(unsigned long long nbr, char *base);
-void	*ft_xmalloc(size_t size);
 void	ft_free_array(void **array);
 void	ft_free_2darray_char(char **array);
 
@@ -48,10 +47,5 @@ int		ft_printf(const char *str, ...) \
 				__attribute__ ((format (printf, 1, 2)));
 int		ft_dprintf(int fd, const char *str, ...) \
 				__attribute__ ((format (printf, 2, 3)));
-
-/* GET_NEXT_LINE **************************************************************/
-
-// char	*get_next_line_multifd(int fd);
-// char	*get_next_line(int fd);
 
 #endif
