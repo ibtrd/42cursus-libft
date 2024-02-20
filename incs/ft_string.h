@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:18:27 by ibertran          #+#    #+#             */
-/*   Updated: 2024/02/16 13:09:27 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/02/20 13:50:25 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ size_t	ft_strlen_protected(const char *str);
 size_t	ft_strlen(const char *str);
 size_t	ft_strnlen(const char *str, size_t n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+int		ft_countwords(const char *str, const char *sep);
+char	**ft_split(char const *s, char c);
 
 #endif
