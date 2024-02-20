@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 20:50:29 by ibertran          #+#    #+#             */
-/*   Updated: 2024/02/18 22:14:26 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/02/20 13:42:41 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	ft_vector_resize(t_vector *v, size_t capacity)
 	if (new)
 	{
 		ft_memcpy(new, v->ptr, v->size * v->total);
-		ft_memset(new + v->size * v->total, '\0', v->size);
 		v->capacity = capacity;
 		status = SUCCESS;
 	}

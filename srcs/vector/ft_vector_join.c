@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:55:07 by ibertran          #+#    #+#             */
-/*   Updated: 2024/02/18 22:14:20 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/02/20 13:43:49 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	ft_vector_join(t_vector *v, void *items, size_t n)
 			return (status);
 	}
 	ft_memcpy(v->ptr + v->size * v->total, items, v->size * n);
-	ft_memset(v->ptr + v->size * v->total + v->size * n, '\0', v->size);
 	v->total += n;
 	return (SUCCESS);
 }
