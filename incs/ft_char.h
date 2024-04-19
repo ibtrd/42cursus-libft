@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:58:48 by ibertran          #+#    #+#             */
-/*   Updated: 2024/02/17 16:00:41 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/04/19 22:14:18 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,4 @@ int		ft_isspace(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 
-#endif
+#endif //FT_CHAR_H

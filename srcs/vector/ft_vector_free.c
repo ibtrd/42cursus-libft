@@ -5,24 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 02:07:11 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/20 15:18:14 by ibertran         ###   ########lyon.fr   */
+/*   Created: 2024/04/19 22:10:14 by ibertran          #+#    #+#             */
+/*   Updated: 2024/04/19 22:10:17 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
 #include "ft_vector.h"
+#include "ft_mem.h"
 
 int	ft_vector_free(t_vector *v)
 {
-	int	status;
+	size_t	i;
 
-	status = UNDEFINED;
-	if (v)
+	if (!v)
+		return (FAILURE);
+	if (v->del)
 	{
-		free(v->ptr);
-		v->ptr = NULL;
-		status = SUCCESS;
+		i = 0;
+		while (i < v->total)
+			v->del((void **)ft_vector_get(v, i++));
 	}
-	return (status);
+	free(v->ptr);
+	ft_memset(v, '\0', sizeof(t_vector));
+	return (SUCCESS);
 }

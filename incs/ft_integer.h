@@ -28,4 +28,4 @@ int		ft_uitoalen_base(unsigned int n, char *base);
 int		ft_ulltoalen_base(unsigned long long nbr, char *base);
 long	ft_strtol(const char *ptr, char **endptr);
 
-#endif
+#endif //FT_INTEGER_H

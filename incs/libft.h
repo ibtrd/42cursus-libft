@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 16:36:22 by ibertran          #+#    #+#             */
-/*   Updated: 2024/02/20 13:52:25 by ibertran         ###   ########lyon.fr   */
+/*   Created: 2024/04/19 22:07:07 by ibertran          #+#    #+#             */
+/*   Updated: 2024/04/19 22:13:56 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "ft_integer.h"
 # include "ft_lst.h"
 # include "ft_mem.h"
+# include "ft_misc.h"
 # include "ft_string.h"
 # include "ft_vector.h"
 
@@ -27,12 +28,14 @@
 int		ft_close(int *fd);
 void	ft_free_array(void **array);
 void	ft_free_2darray_char(char **array);
+int		get_fd_content(int fd, char **content);
+int		get_next_line(int fd, char **line);
 
 /* FT_PRINTF ******************************************************************/
 
-int		ft_printf(const char *str, ...) \
-				__attribute__ ((format (printf, 1, 2)));
 int		ft_dprintf(int fd, const char *str, ...) \
 				__attribute__ ((format (printf, 2, 3)));
+char	*ft_sprintf(const char *str, ...) \
+				__attribute__ ((format (printf, 1, 2)));
 
-#endif
+#endif //LIBFT_H

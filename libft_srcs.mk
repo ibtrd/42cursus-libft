@@ -6,23 +6,17 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 06:32:49 by ibertran          #+#    #+#              #
-#    Updated: 2024/02/19 00:58:31 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/04/05 18:13:17 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS_DIR = srcs/
 SRCS = \
-	$(addprefix $(SRCS_DIR)$(CHAR_DIR)ft_, $(addsuffix .c, $(CHAR_SRC))) \
-	$(addprefix $(SRCS_DIR)$(STR_DIR)ft_, $(addsuffix .c, $(STR_SRC))) \
-	$(addprefix $(SRCS_DIR)$(INT_DIR)ft_, $(addsuffix .c, $(INT_SRC))) \
-	$(addprefix $(SRCS_DIR)$(MEM_DIR)ft_, $(addsuffix .c, $(MEM_SRC))) \
-	$(addprefix $(SRCS_DIR)$(VECTOR_DIR)ft_, $(addsuffix .c, $(VECTOR_SRC))) \
-	$(addprefix $(SRCS_DIR)$(LST_DIR)ft_, $(addsuffix .c, $(LST_SRC))) \
-	$(addprefix $(SRCS_DIR)$(GNL_DIR), $(addsuffix .c, $(GNL_SRC))) \
-	$(addprefix $(SRCS_DIR)$(PRINTF_DIR)ft_, $(addsuffix .c, $(PRINTF_SRC))) \
-	$(addprefix $(SRCS_DIR)$(MISC_DIR)ft_, $(addsuffix .c, $(MISC_SRC))) \
+	$(addprefix $(SRCS_DIR),$(SRC))	
 
 # *** CHAR ******************************************************************* #
+
+SRC += $(addprefix $(CHAR_DIR)ft_, $(addsuffix .c, $(CHAR_SRC))) \
 
 CHAR_DIR = char/
 CHAR_SRC = \
@@ -38,10 +32,15 @@ CHAR_SRC = \
 
 # *** STRING ***************************************************************** #
 
+SRC += $(addprefix $(STR_DIR)ft_, $(addsuffix .c, $(STR_SRC)))
+
 STR_DIR = str/
 STR_SRC = \
 	countwords \
+	generate_rand_str \
+	isnumber \
 	split \
+	str_in_array \
 	strchr \
 	strcmp \
 	strcpy \
@@ -54,13 +53,17 @@ STR_SRC = \
 	strlen \
 	strmapi \
 	strncmp \
+	strndup \
 	strnstr \
+	strpbrk \
 	strrchr \
 	strtok \
 	strtrim \
 	substr \
 
 # *** INTERGER *************************************************************** #
+
+SRC += $(addprefix $(INT_DIR)ft_, $(addsuffix .c, $(INT_SRC)))
 
 INT_DIR = int/
 INT_SRC = \
@@ -75,10 +78,13 @@ INT_SRC = \
 
 # *** MEMORY ***************************************************************** #
 
+SRC += $(addprefix $(MEM_DIR)ft_, $(addsuffix .c, $(MEM_SRC)))
+
 MEM_DIR = mem/
 MEM_SRC = \
 	bzero \
 	calloc \
+	fmalloc \
 	memchr \
 	memcmp \
 	memcpy \
@@ -88,19 +94,53 @@ MEM_SRC = \
 
 # *** VECTOR ***************************************************************** #
 
+SRC += $(addprefix $(VECTOR_DIR)ft_,$(addsuffix .c, $(VECTOR_SRC)))
+
 VECTOR_DIR = vector/
 VECTOR_SRC = \
 	vector_add \
+	vector_add_ptr \
+	vector_alloc \
+	vector_dealloc \
 	vector_delete \
+	vector_deleten \
 	vector_free \
 	vector_get \
 	vector_init \
+	vector_insert \
+	vector_insert_ptr \
+	vector_insertn \
 	vector_join \
+	vector_merge \
+	vector_print \
+	vector_replace \
 	vector_resize \
+	vector_search \
 	vector_set \
+	vector_set_ptr \
+	vector_setn \
+	vector_split \
+	vector_strncat \
 	vector_trim \
+	vector_unlink \
+	vector_sort \
+
+SRC += $(addprefix $(VUTILS_DIR)ft_,$(addsuffix .c, $(VUTILS_SRC)))
+
+VUTILS_DIR = $(VECTOR_DIR)utility/
+VUTILS_SRC = \
+	vclose \
+	vfree \
+	vprint_char \
+	vprint_int \
+	vprint_vchar \
+	vprint_str \
+	vvector_free \
+	vsort_intascend \
 
 # *** LINKED LIST ************************************************************ #
+
+SRC += $(addprefix $(LST_DIR)ft_, $(addsuffix .c, $(LST_SRC)))
 
 LST_DIR = lst/
 LST_SRC = \
@@ -116,32 +156,46 @@ LST_SRC = \
 
 # *** GET_NEXT_LINE ********************************************************** #
 
+SRC += $(addprefix $(GNL_DIR), $(addsuffix .c, $(GNL_SRC)))
+
 GNL_DIR = get_next_line/
 GNL_SRC = \
 	get_next_line \
 
+# *** GET_FD_CONTENT ********************************************************* #
+
+SRC += $(addprefix $(GFC_DIR), $(addsuffix .c, $(GFC_SRC)))
+
+GFC_DIR = get_fd_content/
+GFC_SRC = \
+	get_fd_content \
+
 # *** FT_PRINTF ************************************************************** #
+
+SRC += $(addprefix $(PRINTF_DIR)ft_, $(addsuffix .c, $(PRINTF_SRC)))
 
 PRINTF_DIR = ft_printf/
 PRINTF_SRC = \
-	convert_char \
-	convert_decimal \
-	convert_decimal_utils \
-	convert_lower_hexa \
-	convert_percent \
-	convert_pointer \
-	convert_pointer_utils \
-	convert_string \
-	convert_unsigned_decimal \
-	convert_upper_hexa \
+	converter/convert_char \
+	converter/convert_hexlow \
+	converter/convert_hexup \
+	converter/convert_int \
+	converter/convert_percent \
+	converter/convert_string \
+	converter/convert_uint \
+	addconversion \
 	dprintf \
-	format \
-	printf \
+	pf_build_buffer \
+	pf_print_buffer \
+	sprintf \
 
 # *** MISCELLANEOUS ********************************************************** #
+
+SRC += $(addprefix $(MISC_DIR)ft_, $(addsuffix .c, $(MISC_SRC)))
 
 MISC_DIR = misc/
 MISC_SRC = \
 	close \
 	free_array \
 	free_2darray_char \
+	tmp_file \

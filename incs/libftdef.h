@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 19:25:01 by ibertran          #+#    #+#             */
-/*   Updated: 2024/01/08 19:26:06 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/04/19 22:14:18 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,4 @@
 # define DEL 127
 # define CAPITALIZE 32
 
-#endif
+#endif //LIBFTDEF_H

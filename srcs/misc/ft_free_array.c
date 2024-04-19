@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 04:09:15 by ibertran          #+#    #+#             */
-/*   Updated: 2024/02/18 21:55:09 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/04/19 22:08:31 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,3 @@ void	ft_free_array(void **array)
 		free(array[i++]);
 	free(array);
 }
-
