@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 03:58:48 by ibertran          #+#    #+#             */
-/*   Updated: 2024/03/18 03:39:43 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/04/29 16:29:17 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_vector_sort(t_vector *v, int (*cmp)(void *, void *))
 		return (FAILURE);
 	if (!v->total)
 		return (SUCCESS);
-	tmp = malloc(v->size);
+	tmp = malloc(v->infos.data_size);
 	if (!tmp)
 		return (FAILURE);
 	index = 0;
@@ -47,12 +47,12 @@ int	ft_vector_sort(t_vector *v, int (*cmp)(void *, void *))
 static void	swap_elements(t_vector *v, size_t index, void *tmp)
 {
 	ft_memcpy(tmp,
-		v->ptr + index * v->size,
-		v->size);
-	ft_memcpy(v->ptr + index * v->size,
-		v->ptr + (index + 1) * v->size,
-		v->size);
-	ft_memcpy(v->ptr + (index + 1) * v->size,
+		v->ptr + index * v->infos.data_size,
+		v->infos.data_size);
+	ft_memcpy(v->ptr + index * v->infos.data_size,
+		v->ptr + (index + 1) * v->infos.data_size,
+		v->infos.data_size);
+	ft_memcpy(v->ptr + (index + 1) * v->infos.data_size,
 		tmp,
-		v->size);
+		v->infos.data_size);
 }

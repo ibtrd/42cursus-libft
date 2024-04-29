@@ -21,21 +21,19 @@
 # define FAILURE -1
 # define SUCCESS 0
 
-typedef struct s_vector
-{
-	void			*ptr;
-	size_t			size;
-	size_t			capacity;
-	size_t			total;
-	void			(*del)(void **);
-}	t_vector;
-
 typedef struct s_vinfos
 {
 	size_t			data_size;
 	size_t			capacity;
 	void			(*del)(void **);
 }	t_vinfos;
+
+typedef struct s_vector
+{
+	void		*ptr;
+	size_t		total;
+	t_vinfos	infos;
+}	t_vector;
 
 typedef int	(*t_vfunc)(void *);
 
@@ -47,9 +45,9 @@ int		ft_vector_delete(t_vector *v, size_t index);
 int		ft_vector_deleten(t_vector *v, size_t index, size_t n);
 int		ft_vector_free(t_vector *v);
 int		ft_vector_init(t_vector *v, t_vinfos infos);
-int		ft_vector_insert_ptr(t_vector *v, void *item, size_t index);
-int		ft_vector_insert(t_vector *v, void *item, size_t index);
-int		ft_vector_insertn(t_vector *v, void *item, size_t index, size_t n);
+int		ft_vector_insert_ptr(t_vector *v, size_t index, void *item);
+int		ft_vector_insert(t_vector *v, size_t index, void *item);
+int		ft_vector_insertn(t_vector *v, size_t index, void *item, size_t n);
 int		ft_vector_iteri(t_vector *v, t_vfunc function);
 int		ft_vector_join(t_vector *v, void *items, size_t n);
 int		ft_vector_merge(t_vector *v1, size_t index, t_vector *v2);

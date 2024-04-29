@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 05:07:51 by ibertran          #+#    #+#             */
-/*   Updated: 2024/03/13 03:04:44 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/04/29 16:36:34 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	ft_vector_setn(t_vector *v, size_t index, const void *item, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		ft_memcpy(v->ptr + (index + i) * v->size, item, v->size);
+		ft_memcpy(v->ptr + (index + i) * v->infos.data_size,
+			item,
+			v->infos.data_size);
 		i++;
 	}
 	return (SUCCESS);

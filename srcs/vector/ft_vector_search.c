@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 03:38:16 by ibertran          #+#    #+#             */
-/*   Updated: 2024/03/13 04:12:41 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/04/29 16:29:17 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	*ft_vector_search(t_vector *v, const void *item)
 	index = 0;
 	while (index < v->total)
 	{
-		ptr = v->ptr + index * v->size;
-		if (!ft_memcmp(ptr, item, v->size))
+		ptr = v->ptr + index * v->infos.data_size;
+		if (!ft_memcmp(ptr, item, v->infos.data_size))
 			return (ptr);
 		index++;
 	}

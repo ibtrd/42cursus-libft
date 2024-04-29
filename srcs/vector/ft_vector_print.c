@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 04:49:01 by ibertran          #+#    #+#             */
-/*   Updated: 2024/03/15 03:15:03 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/04/29 16:29:17 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ int	ft_vector_printi(t_vector *v, void (*print)(void *, size_t), char *msg)
 		printf("\n%s\n", msg);
 	printf("------------------------\n");
 	printf(" address : %p\n", v);
-	printf(" capacity: %ld/%ld\n", v->total, v->capacity);
-	printf(" size    : %ld\n", v->size);
+	printf(" capacity: %ld/%ld\n", v->total, v->infos.capacity);
+	printf(" size    : %ld\n", v->infos.data_size);
 	printf("\n");
 	i = 0;
 	while (i < v->total)
