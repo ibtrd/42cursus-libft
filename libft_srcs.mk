@@ -6,20 +6,20 @@
 #    By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 06:32:49 by ibertran          #+#    #+#              #
-#    Updated: 2024/04/05 18:13:17 by ibertran         ###   ########lyon.fr    #
+#    Updated: 2024/11/03 21:37:46 by ibertran         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS_DIR = srcs/
-SRCS = \
+override SRCS_DIR = srcs/
+override SRCS = \
 	$(addprefix $(SRCS_DIR),$(SRC))	
 
 # *** CHAR ******************************************************************* #
 
 SRC += $(addprefix $(CHAR_DIR)ft_, $(addsuffix .c, $(CHAR_SRC))) \
 
-CHAR_DIR = char/
-CHAR_SRC = \
+override CHAR_DIR := char/
+override CHAR_SRC := \
 	isalnum \
 	isalpha \
 	isascii \
@@ -34,8 +34,8 @@ CHAR_SRC = \
 
 SRC += $(addprefix $(STR_DIR)ft_, $(addsuffix .c, $(STR_SRC)))
 
-STR_DIR = str/
-STR_SRC = \
+override STR_DIR := str/
+override STR_SRC := \
 	countwords \
 	generate_rand_str \
 	isnumber \
@@ -65,8 +65,8 @@ STR_SRC = \
 
 SRC += $(addprefix $(INT_DIR)ft_, $(addsuffix .c, $(INT_SRC)))
 
-INT_DIR = int/
-INT_SRC = \
+override INT_DIR := int/
+override INT_SRC := \
 	abs \
 	atoi \
 	fabs \
@@ -80,8 +80,8 @@ INT_SRC = \
 
 SRC += $(addprefix $(MEM_DIR)ft_, $(addsuffix .c, $(MEM_SRC)))
 
-MEM_DIR = mem/
-MEM_SRC = \
+override MEM_DIR := mem/
+override MEM_SRC := \
 	bzero \
 	calloc \
 	fmalloc \
@@ -96,8 +96,8 @@ MEM_SRC = \
 
 SRC += $(addprefix $(VECTOR_DIR)ft_,$(addsuffix .c, $(VECTOR_SRC)))
 
-VECTOR_DIR = vector/
-VECTOR_SRC = \
+override VECTOR_DIR := vector/
+override VECTOR_SRC := \
 	vector_add \
 	vector_add_ptr \
 	vector_alloc \
@@ -127,8 +127,8 @@ VECTOR_SRC = \
 
 SRC += $(addprefix $(VUTILS_DIR)ft_,$(addsuffix .c, $(VUTILS_SRC)))
 
-VUTILS_DIR = $(VECTOR_DIR)utility/
-VUTILS_SRC = \
+override VUTILS_DIR := $(VECTOR_DIR)utility/
+override VUTILS_SRC := \
 	vclose \
 	vfree \
 	vprint_char \
@@ -142,8 +142,8 @@ VUTILS_SRC = \
 
 SRC += $(addprefix $(LST_DIR)ft_, $(addsuffix .c, $(LST_SRC)))
 
-LST_DIR = lst/
-LST_SRC = \
+override LST_DIR := lst/
+override LST_SRC := \
 	lstadd_back \
 	lstadd_front \
 	lstclear \
@@ -158,24 +158,24 @@ LST_SRC = \
 
 SRC += $(addprefix $(GNL_DIR), $(addsuffix .c, $(GNL_SRC)))
 
-GNL_DIR = get_next_line/
-GNL_SRC = \
+override GNL_DIR := get_next_line/
+override GNL_SRC := \
 	get_next_line \
 
 # *** GET_FD_CONTENT ********************************************************* #
 
 SRC += $(addprefix $(GFC_DIR), $(addsuffix .c, $(GFC_SRC)))
 
-GFC_DIR = get_fd_content/
-GFC_SRC = \
+override GFC_DIR := get_fd_content/
+override GFC_SRC := \
 	get_fd_content \
 
 # *** FT_PRINTF ************************************************************** #
 
 SRC += $(addprefix $(PRINTF_DIR)ft_, $(addsuffix .c, $(PRINTF_SRC)))
 
-PRINTF_DIR = ft_printf/
-PRINTF_SRC = \
+override PRINTF_DIR := ft_printf/
+override PRINTF_SRC := \
 	converter/convert_char \
 	converter/convert_hexlow \
 	converter/convert_hexup \
@@ -193,8 +193,8 @@ PRINTF_SRC = \
 
 SRC += $(addprefix $(MISC_DIR)ft_, $(addsuffix .c, $(MISC_SRC)))
 
-MISC_DIR = misc/
-MISC_SRC = \
+override MISC_DIR := misc/
+override MISC_SRC := \
 	close \
 	free_array \
 	free_2darray_char \
