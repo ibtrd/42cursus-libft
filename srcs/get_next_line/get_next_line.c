@@ -6,7 +6,7 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 22:08:17 by ibertran          #+#    #+#             */
-/*   Updated: 2024/04/19 22:08:19 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/12/06 11:12:12 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ int	get_next_line(int fd, char **line)
 	t_vector	v;
 	int			error;
 
-	if (fd < 0 || fd > GNL_OPEN_MAX || BUFFER_SIZE < 1)
-		return (-1);
 	if (ft_vector_init(&v, (t_vinfos){sizeof(char), GNL_VECTOR_SIZE, NULL}))
 		return (-1);
 	error = get_from_buffer(buffer, &v);
