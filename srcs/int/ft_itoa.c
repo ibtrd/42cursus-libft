@@ -6,29 +6,31 @@
 /*   By: ibertran <ibertran@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:38:56 by ibertran          #+#    #+#             */
-/*   Updated: 2023/12/01 16:31:44 by ibertran         ###   ########lyon.fr   */
+/*   Updated: 2024/11/13 09:53:24 by ibertran         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdint.h"
 
 char	*ft_itoa(int nbr)
 {
-	char	*ptr;
-	long	lnbr;
-	size_t	len;
+	char			*ptr;
+	unsigned int	num;
+	size_t			len;
 
 	len = ft_itoalen(nbr);
 	ptr = ft_calloc(len + 1, sizeof(char));
 	if (!ptr)
 		return (NULL);
-	lnbr = (long)nbr;
 	if (nbr < 0)
-		lnbr *= -1;
+		num = -nbr;
+	else
+		num = nbr;
 	while (len--)
 	{
-		ptr[len] = lnbr % 10 + '0';
-		lnbr /= 10;
+		ptr[len] = num % 10 + '0';
+		num /= 10;
 	}
 	if (nbr < 0)
 		ptr[0] = '-';
